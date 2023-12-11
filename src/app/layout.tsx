@@ -4,6 +4,7 @@ import { type ReactElement } from "react";
 import { Inter } from "next/font/google";
 
 import { ReactFireProvider } from "~/app/providers";
+import { ThemeProvider } from "~/app/providers/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +21,13 @@ export default function RootLayout({ children }: { children: ReactElement }) {
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <ReactFireProvider>{children}</ReactFireProvider>
+        <ThemeProvider
+          attribute={"class"}
+          defaultTheme={"dark"}
+          disableTransitionOnChange
+        >
+          <ReactFireProvider>{children}</ReactFireProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
