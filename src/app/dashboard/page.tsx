@@ -1,8 +1,11 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import { Metric, Card as TremorCard, Text as TremorText } from "@tremor/react";
+import { signOut } from "firebase/auth";
 import { collection, orderBy, query, type Query } from "firebase/firestore";
-import { useFirestoreCollectionData, useUser } from "reactfire";
+import { useAuth, useFirestoreCollectionData, useUser } from "reactfire";
 
 import { ModeToggle } from "~/shared/theme-toggle";
 
@@ -55,6 +58,9 @@ const Facilities = () => {
 
 export default function HomePage() {
   const { data, status } = useUser();
+  const router = useRouter();
+
+  const auth = useAuth();
 
   return (
     <main>
@@ -68,7 +74,20 @@ export default function HomePage() {
           {/*<span className="text-[hsl(280,100%,70%)]">{facilities.length}</span>*/}
         </h1>
         <Facilities />
-        <Button onClick={() => console.log("Sign out.")}>Sign out</Button>
+        <Button
+          onClick={() => {
+            signOut(auth)
+              .then(() => {
+                router.push("/");
+              })
+              .catch((error) => {
+                console.error(error);
+                console.log("Error signing out");
+              });
+          }}
+        >
+          Sign out
+        </Button>
         <ModeToggle />
         <SampleChart />
       </div>
