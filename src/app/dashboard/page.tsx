@@ -14,6 +14,7 @@ import { db } from "~/lib/firebase";
 interface Facility {
   name: string;
   id: string;
+  total_consumption: number;
 }
 
 const Facilities = () => {
@@ -42,7 +43,9 @@ const Facilities = () => {
         {facilities?.map((facility) => (
           <TremorCard key={facility.id}>
             <TremorText className={"pb-2"}>{facility.name}</TremorText>
-            <Metric className={"font-bold"}>$ 1,000</Metric>
+            <Metric className={"font-bold"}>
+              {facility.total_consumption} kWh
+            </Metric>
           </TremorCard>
         ))}
       </div>
