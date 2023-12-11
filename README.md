@@ -11,7 +11,7 @@ interface.
 
 Before you begin, ensure you have the following installed:
 
-- Node.js (v12 or higher)
+- Node.js (v18 or higher)
 - pnpm (v6 or higher)
 
 ## Installation
