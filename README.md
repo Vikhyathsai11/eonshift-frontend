@@ -1,28 +1,69 @@
-# Create T3 App
+# Enimo Frontend README
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Project Overview
 
-## What's next? How do I make an app with this?
+Enimo Frontend is a sophisticated energy consumption dashboard, designed to provide real-time insights and analytics.
+This project is developed using the T3 stack, but it primarily utilizes Next.js and Firebase, integrated through
+Reactfire. The UI is elegantly crafted using Tailwind CSS and Shadcn UI, ensuring a responsive and visually appealing
+interface.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Prerequisites
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+Before you begin, ensure you have the following installed:
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- Node.js (v12 or higher)
+- pnpm (v6 or higher)
 
-## Learn More
+## Installation
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. **Clone the Repository**
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+   Start by cloning the repository to your local machine:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/your-repository/enimo-frontend.git
+   cd enimo-frontend
 
-## How do I deploy this?
+2. **Install Dependencies**
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+   Install the necessary dependencies using pnpm:
+    ```bash
+    pnpm install
+
+3. **Environment Configuration**
+
+   Set up your Firebase configuration in an `.env.local` file. This file should include your Firebase project keys and
+   IDs.
+
+## Running the Development Server
+
+To start the development server, run:
+
+```bash
+pnpm dev
+```
+
+This will launch the project on `http://localhost:3000`. The app will automatically reload if you change any of the
+source files.
+
+## Building for Production
+
+1. **Build the Project**
+   To build the project, run:
+
+    ```bash
+    pnpm build
+    ```
+   The build artifacts will be stored in the `dist/` directory.
+
+## Additional Information
+
+- **Firebase Integration:** This project uses Reactfire to integrate Firebase services seamlessly.
+- **UI Components:** Tailwind CSS and Shadcn UI are used for styling and UI components.
+- **Next.js Features:** Leverage the full potential of Next.js, including server-side rendering and static site
+  generation.
+
+## Support
+
+For any additional information or support, please contact the development team or open an issue in the project
+repository.
