@@ -1,8 +1,8 @@
-# Enimo Frontend README
+# EonShift Frontend README
 
 ## Project Overview
 
-Enimo Frontend is a sophisticated energy consumption dashboard, designed to provide real-time insights and analytics.
+EonShift Frontend is a sophisticated energy consumption dashboard, designed to provide real-time insights and analytics.
 This project is developed using the T3 stack, but it primarily utilizes Next.js and Firebase, integrated through
 Reactfire. The UI is elegantly crafted using Tailwind CSS and Shadcn UI, ensuring a responsive and visually appealing
 interface.
@@ -21,8 +21,8 @@ Before you begin, ensure you have the following installed:
    Start by cloning the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-repository/enimo-frontend.git
-   cd enimo-frontend
+   git clone https://github.com/your-repository/eonshift-frontend.git
+   cd eonshift-frontend
 
 2. **Install Dependencies**
 
