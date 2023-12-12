@@ -18,7 +18,7 @@ const CheckAuthProvider = ({ children }: { children: ReactElement }) => {
 
     if (signinData?.signedIn === true) {
       // // User is logged in, redirect to dashboard if not already there
-      if (pathname !== "/dashboard") {
+      if (pathname === "/login") {
         router.push("/dashboard");
       }
     } else {
