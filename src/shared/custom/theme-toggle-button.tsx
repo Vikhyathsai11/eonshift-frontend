@@ -3,7 +3,7 @@
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
-import { Button } from "~/shared/shadcn/button";
+import { Button } from "~/shared/shadcn/ui/button";
 
 const ThemeToggleButton = () => {
   const { setTheme, theme } = useTheme();
