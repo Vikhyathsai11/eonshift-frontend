@@ -12,25 +12,15 @@ import CustomLink from "next/link";
 import { usePathname } from "next/navigation";
 
 import {
-  ArchiveRestore,
-  Banknote,
-  BarChart,
-  Box,
-  Boxes,
-  Briefcase,
-  GitCompare,
-  HelpCircle,
-  Keyboard,
+  Clock,
+  FileText,
+  Grid,
   LayoutPanelLeft,
   LifeBuoy,
-  RotateCcw,
-  Settings,
-  ShoppingCart,
-  Truck,
-  UserCheck,
-  Users,
-  WalletCards,
-  Wrench,
+  Lightbulb,
+  Sliders,
+  ThermometerSun,
+  User,
 } from "lucide-react";
 
 import { Button } from "~/shared/shadcn/ui/button";
@@ -69,113 +59,64 @@ const pages: Record<
     href: "/dashboard",
     icon: <LayoutPanelLeft />,
   },
-  menu: {
-    subTitle: "Menu",
+  deviceManagement: {
+    subTitle: "Device Management",
     subMenu: [
       {
-        name: "Dashboard",
-        href: "/dashboard",
-        icon: <LayoutPanelLeft />,
+        name: "Control Devices",
+        href: "/device-management/control",
+        icon: <Grid />,
       },
       {
-        name: "Devices",
-        href: "/devices",
-        icon: <Boxes />,
-      },
-      {
-        name: "Reports",
-        href: "/reports",
-        icon: <BarChart />,
+        name: "Device Performance",
+        href: "/device-management/performance",
+        icon: <ThermometerSun />,
       },
     ],
   },
-  mainMenu: {
-    subTitle: "Main Menu",
+  analytics: {
+    subTitle: "Energy Analytics",
     subMenu: [
       {
-        name: "Sales Orders",
-        href: "/salesOrders",
-        icon: <ShoppingCart />,
+        name: "Historical Data",
+        href: "/energy-analytics/historical",
+        icon: <Clock />,
       },
       {
-        name: "Purchase Orders",
-        href: "/purchaseOrders",
-        icon: <WalletCards />,
-      },
-      {
-        name: "Shipments",
-        href: "/shipments",
-        icon: <Truck />,
-      },
-      {
-        name: "Returns",
-        href: "/returns",
-        icon: <RotateCcw />,
-      },
-      {
-        name: "Payments",
-        href: "/payments",
-        icon: <Banknote />,
-      },
-      {
-        name: "Reports",
-        href: "/reports",
-        icon: <BarChart />,
+        name: "Predictive Analysis",
+        href: "/energy-analytics/predictive",
+        icon: <ThermometerSun />,
       },
     ],
   },
-  production: {
-    subTitle: "Production",
+
+  insightsAndReports: {
+    subTitle: "Insights & Reports",
     subMenu: [
       {
-        name: "Fulfillment",
-        href: "/fulfillment",
-        icon: <GitCompare />,
+        name: "Insights",
+        href: "/insights-reports-export/insights",
+        icon: <Lightbulb />,
       },
       {
-        name: "Inventory Requisition",
-        href: "/requisition",
-        icon: <ArchiveRestore />,
-      },
-      {
-        name: "Development Requests",
-        href: "/developmentRequests",
-        icon: <Keyboard />,
+        name: "Reports & Export",
+        href: "reports-export",
+        icon: <FileText />,
       },
     ],
   },
-  inventory: {
-    subTitle: "Items",
+  settings: {
+    subTitle: "Settings",
     subMenu: [
       {
-        name: "Products",
-        href: "/products",
-        icon: <Box />,
+        name: "Configuration",
+        href: "/settings-configuration/system",
+        icon: <Sliders />,
       },
       {
-        name: "Materials",
-        href: "/materials",
-        icon: <Boxes />,
-      },
-      {
-        name: "Tools",
-        href: "/tools",
-        icon: <Wrench />,
-      },
-    ],
-  },
-  partners: {
-    subTitle: "Partners",
-    subMenu: [
-      {
-        name: "Customers",
-        href: "/customers",
-        icon: <Users />,
-      },
-      {
-        name: "Vendors",
-        href: "/vendors",
-        icon: <Briefcase />,
+        name: "User Management",
+        href: "/settings-configuration/user",
+        icon: <User />,
       },
     ],
   },
@@ -183,29 +124,9 @@ const pages: Record<
     subTitle: "Support",
     subMenu: [
       {
-        name: "Resolution Requests",
-        href: "/resolutionRequests",
+        name: "Support & Help",
+        href: "/support-help",
         icon: <LifeBuoy />,
-      },
-    ],
-  },
-  general: {
-    subTitle: "General",
-    subMenu: [
-      {
-        name: "Users",
-        href: "/users",
-        icon: <UserCheck />,
-      },
-      {
-        name: "Settings",
-        href: "/settings",
-        icon: <Settings />,
-      },
-      {
-        name: "Help",
-        href: "/help",
-        icon: <HelpCircle />,
       },
     ],
   },
