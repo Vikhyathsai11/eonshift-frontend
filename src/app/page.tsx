@@ -1,18 +1,8 @@
-"use client";
-
-import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
-
-import LoadingPage from "~/shared/custom/loading-page";
+import { redirect } from "next/navigation";
 
 const DefaultPage = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/dashboard");
-  }, []);
-
-  return <LoadingPage title={"Loading..."} description={"Please wait..."} />;
+  // Redirect to user to the dashboard endpoint, if there are on the default endpoint.
+  redirect("/dashboard");
 };
 
 export default DefaultPage;
