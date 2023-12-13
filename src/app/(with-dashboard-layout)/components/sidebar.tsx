@@ -64,12 +64,12 @@ const pages: Record<
     subMenu: [
       {
         name: "Control Devices",
-        href: "/device-management/control",
+        href: "/devices/control",
         icon: <Grid />,
       },
       {
         name: "Device Performance",
-        href: "/device-management/performance",
+        href: "/devices/performance",
         icon: <ThermometerSun />,
       },
     ],
