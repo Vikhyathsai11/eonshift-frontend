@@ -18,7 +18,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactElement }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body className={`font-sans ${inter.variable}`}>
         <ThemeProvider
           attribute={"class"}

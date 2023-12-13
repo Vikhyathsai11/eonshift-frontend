@@ -10,7 +10,7 @@ import { useAuth, useFirestoreCollectionData, useUser } from "reactfire";
 import { ModeToggle } from "~/shared/custom/theme-toggle";
 import { Button } from "~/shared/shadcn/button";
 
-import SampleChart from "~/app/dashboard/components/sample";
+import SampleChart from "~/app/(with-dashboard-layout)/dashboard/components/sample";
 
 import { db } from "~/lib/firebase";
 
