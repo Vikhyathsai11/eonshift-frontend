@@ -1,13 +1,11 @@
 "use client";
 
-import * as React from "react";
-
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
 import { Button } from "~/shared/shadcn/button";
 
-export function ModeToggle() {
+const ThemeToggleButton = () => {
   const { setTheme, theme } = useTheme();
 
   return (
@@ -23,4 +21,6 @@ export function ModeToggle() {
       <span className="sr-only">Toggle theme</span>
     </Button>
   );
-}
+};
+
+export default ThemeToggleButton;

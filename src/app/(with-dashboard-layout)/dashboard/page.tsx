@@ -7,7 +7,7 @@ import { signOut } from "firebase/auth";
 import { collection, orderBy, query, type Query } from "firebase/firestore";
 import { useAuth, useFirestoreCollectionData, useUser } from "reactfire";
 
-import { ModeToggle } from "~/shared/custom/theme-toggle";
+import { ThemeToggleButton } from "~/shared/custom";
 import { Button } from "~/shared/shadcn/button";
 
 import SampleChart from "~/app/(with-dashboard-layout)/dashboard/components/sample";
@@ -88,7 +88,7 @@ export default function HomePage() {
         >
           Sign out
         </Button>
-        <ModeToggle />
+        <ThemeToggleButton />
         <SampleChart />
       </div>
     </main>
