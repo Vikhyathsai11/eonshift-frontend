@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-import Message from "~/shared/message";
+import LoadingPage from "~/shared/custom/loading-page";
 
 const DefaultPage = () => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const DefaultPage = () => {
     router.push("/dashboard");
   }, []);
 
-  return <Message title={"Loading..."} />;
+  return <LoadingPage title={"Loading..."} description={"Please wait..."} />;
 };
 
 export default DefaultPage;

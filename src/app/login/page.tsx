@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useSigninCheck } from "reactfire";
 
-import Message from "~/shared/message";
+import LoadingPage from "~/shared/custom/loading-page";
 
 import { auth } from "~/lib/firebase";
 
@@ -21,7 +21,7 @@ const Login = () => {
     }
   }, [signInData, status, router]);
 
-  const signIn = async () => {
+  const handleSignIn = async () => {
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
@@ -36,17 +36,8 @@ const Login = () => {
     }
   };
 
-  if (status === "loading") {
-    return <Message title={"Loading..."} />;
-  }
-
-  if (signInData?.signedIn) {
-    return (
-      <Message
-        title={"Loading..."}
-        description={"Already Logged In, Redirecting..."}
-      />
-    );
+  if (status === "loading" || (status === "success" && signInData?.signedIn)) {
+    return <LoadingPage title={"Loading..."} />;
   }
 
   return (
@@ -55,7 +46,7 @@ const Login = () => {
       <div className="flex gap-2">
         <button
           className="px-4 py-2 rounded-md text-white bg-gradient-to-r font-bold from-[#2e026d] to-[#15162c]"
-          onClick={signIn}
+          onClick={handleSignIn}
         >
           Login
         </button>

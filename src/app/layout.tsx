@@ -3,8 +3,7 @@ import "~/styles/globals.css";
 import { type ReactElement } from "react";
 import { Inter } from "next/font/google";
 
-import { ReactFireProvider } from "~/app/providers";
-import { ThemeProvider } from "~/app/providers/ThemeProvider";
+import { ReactFireProvider, ThemeProvider } from "~/providers";
 
 const inter = Inter({
   subsets: ["latin"],

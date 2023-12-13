@@ -5,7 +5,7 @@ import * as React from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
-import { Button } from "~/lib/components/ui/button";
+import { Button } from "~/shared/shadcn/button";
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();

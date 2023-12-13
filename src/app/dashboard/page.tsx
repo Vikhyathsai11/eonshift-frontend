@@ -7,11 +7,11 @@ import { signOut } from "firebase/auth";
 import { collection, orderBy, query, type Query } from "firebase/firestore";
 import { useAuth, useFirestoreCollectionData, useUser } from "reactfire";
 
-import { ModeToggle } from "~/shared/theme-toggle";
+import { ModeToggle } from "~/shared/custom/theme-toggle";
+import { Button } from "~/shared/shadcn/button";
 
 import SampleChart from "~/app/dashboard/components/sample";
 
-import { Button } from "~/lib/components/ui/button";
 import { db } from "~/lib/firebase";
 
 interface Facility {
