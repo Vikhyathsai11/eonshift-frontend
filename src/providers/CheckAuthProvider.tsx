@@ -37,7 +37,12 @@ const CheckAuthProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   if (status === "success" && !signinData?.signedIn) {
-    return <LoadingPage title={"Loading..."} description={"Redirecting..."} />;
+    return (
+      <LoadingPage
+        title={"Loading..."}
+        description={"Redirecting to login..."}
+      />
+    );
   }
 
   return (

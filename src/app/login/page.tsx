@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -13,6 +13,7 @@ import { auth } from "~/lib/firebase";
 const Login = () => {
   const router = useRouter();
   const { data: signInData, status } = useSigninCheck();
+  const [signInStatus, setSignInStatus] = useState("default");
 
   useEffect(() => {
     // Redirect to dashboard if already logged in
@@ -30,16 +31,28 @@ const Login = () => {
       );
       console.log(userCredential.user);
       router.push("/dashboard");
+      setSignInStatus("logged-in");
     } catch (error) {
       console.error(error);
-      // Handle errors here, such as showing an error message to the user
     }
   };
 
-  if (status === "loading" || (status === "success" && signInData?.signedIn)) {
+  if (status === "loading") {
     return <LoadingPage title={"Loading..."} />;
   }
 
+  if (status === "success" && signInData?.signedIn) {
+    return (
+      <LoadingPage
+        title={"Loading..."}
+        description={
+          signInStatus === "logged-in"
+            ? "Logging In..."
+            : "Already Logged In, Redirecting..."
+        }
+      />
+    );
+  }
   return (
     <div className="p-2">
       <h2>Login</h2>
