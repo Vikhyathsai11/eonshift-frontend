@@ -100,7 +100,7 @@ const pages: Record<
       },
       {
         name: "Reports & Export",
-        href: "reports-export",
+        href: "/insights-reports-export/reports-export",
         icon: <FileText />,
       },
     ],
