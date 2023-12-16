@@ -4,7 +4,6 @@ import { collection, orderBy, query, type Query } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
 
-import { ThemeToggleButton } from "~/shared/custom";
 import { Button } from "~/shared/shadcn/ui/button";
 import {
   Select,
@@ -20,7 +19,7 @@ import { updateFacility } from "~/redux/slices/facilitySlice";
 import { type AppDispatch, type RootState } from "~/redux/store";
 import { type FacilityDocument } from "~/types";
 
-const FacilitySelector = () => {
+const TopbarFacilitySelector = () => {
   const dispatch = useDispatch<AppDispatch>();
   const selectedFacility = useSelector((state: RootState) => state.facility);
 
@@ -81,31 +80,4 @@ const FacilitySelector = () => {
   );
 };
 
-const TopBar = () => {
-  return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background shadow-sm">
-      <div className="flex h-16 items-center px-4 sm:justify-between sm:space-x-0 sm:px-[1rem]">
-        <Button variant={"outline"} size={"icon"} className={"mr-2 xl:hidden"}>
-          <Icons.menu className={"h-4 w-4"} />
-        </Button>
-        <div className={"flex flex-row items-center gap-2"}>
-          <h3
-            className={
-              "text-xl font-black leading-none tracking-tight lg:text-3xl text-primary mr-4"
-            }
-          >
-            EonShift
-          </h3>
-          <FacilitySelector />
-        </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
-            <ThemeToggleButton disabled={true} />
-          </nav>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-export default TopBar;
+export default TopbarFacilitySelector;
