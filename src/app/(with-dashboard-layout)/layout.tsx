@@ -14,8 +14,9 @@ export default function WithDashboardLayout({
   return (
     <CheckAuthProvider>
       <TooltipProvider>
-        <Layout>{children}</Layout>
-        <CheckSelectedFacility />
+        <CheckSelectedFacility>
+          <Layout>{children}</Layout>
+        </CheckSelectedFacility>
       </TooltipProvider>
     </CheckAuthProvider>
   );

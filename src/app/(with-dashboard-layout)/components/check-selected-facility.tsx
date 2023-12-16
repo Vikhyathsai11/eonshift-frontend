@@ -1,11 +1,12 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, type ReactElement } from "react";
 
 import { collection, orderBy, query, type Query } from "firebase/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
 
+import { LoadingPage } from "~/shared/custom";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -26,7 +27,7 @@ import { updateFacility } from "~/redux/slices/facilitySlice";
 import { type AppDispatch, type RootState } from "~/redux/store";
 import { type FacilityDocument } from "~/types";
 
-const CheckSelectedFacility = () => {
+const CheckSelectedFacility = ({ children }: { children: ReactElement }) => {
   const selectedFacility = useSelector((state: RootState) => state.facility);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -55,45 +56,49 @@ const CheckSelectedFacility = () => {
   };
 
   if (status === "loading") {
-    return null;
+    return <LoadingPage />;
   }
 
   if (status === "success" && facilities.length === 0) {
     return null;
   }
 
-  return (
-    <AlertDialog
-      open={
-        status === "success" && selectedFacility && selectedFacility.id === ""
-      }
-    >
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Select Facility</AlertDialogTitle>
-          <AlertDialogDescription>
-            You have not selected a facility yet. Please select a facility to
-            continue.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <Select
-          value={selectedFacility.id}
-          onValueChange={updateSelectedFacility}
-        >
-          <SelectTrigger className="w-full duration-150 bg-secondary/25">
-            <SelectValue placeholder="Select Facility" />
-          </SelectTrigger>
-          <SelectContent>
-            {facilities.map((f) => (
-              <SelectItem key={f.id} value={f.id}>
-                {f.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </AlertDialogContent>
-    </AlertDialog>
-  );
+  if (status === "success" && selectedFacility.id === "" && facilities?.[0]) {
+    return (
+      <AlertDialog
+        open={
+          status === "success" && selectedFacility && selectedFacility.id === ""
+        }
+      >
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Select Facility</AlertDialogTitle>
+            <AlertDialogDescription>
+              You have not selected a facility yet. Please select a facility to
+              continue.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <Select
+            value={selectedFacility.id}
+            onValueChange={updateSelectedFacility}
+          >
+            <SelectTrigger className="w-full duration-150 bg-secondary/25">
+              <SelectValue placeholder="Select Facility" />
+            </SelectTrigger>
+            <SelectContent>
+              {facilities.map((f) => (
+                <SelectItem key={f.id} value={f.id}>
+                  {f.name}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </AlertDialogContent>
+      </AlertDialog>
+    );
+  }
+
+  return children;
 };
 
 export default CheckSelectedFacility;

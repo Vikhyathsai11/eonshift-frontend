@@ -52,6 +52,7 @@ const TotalFacilityConsumption = () => {
   // The facility data is fetched from Firestore.
   const { data: facility, status } = useFirestoreDocData(query, {
     initialData: null,
+    suspense: true,
   });
 
   // If the data is still loading or if there's no facility data, a skeleton loader is displayed.
