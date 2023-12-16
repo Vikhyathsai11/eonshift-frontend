@@ -14,7 +14,7 @@ export default function HomePage() {
         subTitle={"Contains all the summary of the facility and consumption"}
       />
       <Separator />
-      <TotalFacilityConsumption />
+      {/*<TotalFacilityConsumption />*/}
     </PageContainer>
   );
 }
