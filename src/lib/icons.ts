@@ -16,4 +16,5 @@ export const Icons = {
   warning: ExclamationTriangleIcon,
   arrowLeft: ArrowLeftIcon,
   minus: MinusIcon,
+  spinner: UpdateIcon,
 };

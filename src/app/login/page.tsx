@@ -1,19 +1,35 @@
 "use client";
 
+import * as React from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { BatteryFull } from "lucide-react";
+import { useForm } from "react-hook-form";
 import { useSigninCheck } from "reactfire";
 
 import LoadingPage from "~/shared/custom/loading-page";
+import { Button } from "~/shared/shadcn/ui/button";
+import { Input } from "~/shared/shadcn/ui/input";
+import { Label } from "~/shared/shadcn/ui/label";
 
 import { auth } from "~/lib/firebase";
+import { Icons } from "~/lib/icons";
 
 const Login = () => {
   const router = useRouter();
   const { data: signInData, status } = useSigninCheck();
   const [signInStatus, setSignInStatus] = useState("default");
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const methods = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
   useEffect(() => {
     // Redirect to dashboard if already logged in
@@ -22,12 +38,13 @@ const Login = () => {
     }
   }, [signInData, status, router]);
 
-  const handleSignIn = async () => {
+  const handleSignIn = async (data: { email: string; password: string }) => {
+    setIsLoading(true);
     try {
       const userCredential = await signInWithEmailAndPassword(
         auth,
-        "ashfaqnisar00@gmail.com",
-        "secretPassword",
+        data.email,
+        data.password,
       );
       console.log(userCredential.user);
       router.push("/dashboard");
@@ -35,6 +52,7 @@ const Login = () => {
     } catch (error) {
       console.error(error);
     }
+    setIsLoading(false);
   };
 
   if (status === "loading") {
@@ -54,21 +72,46 @@ const Login = () => {
     );
   }
   return (
-    <div className="p-2">
-      <h2>Login</h2>
-      <div className="flex gap-2">
-        <button
-          className="px-4 py-2 rounded-md text-white bg-gradient-to-r font-bold from-[#2e026d] to-[#15162c]"
-          onClick={handleSignIn}
+    <div className="flex flex-row items-center justify-center h-screen w-full">
+      <div className="w-7/12 h-full bg-white hidden xl:flex items-center justify-center">
+        <div className={"flex gap-2 items-center text-white dark:text-black"}>
+          <BatteryFull size={45} />
+          <h3 className={"text-5xl tracking-tight font-bold"}>EonShift</h3>
+        </div>
+      </div>
+      <div className={"flex items-center justify-center flex-auto h-full"}>
+        <form
+          className={"flex flex-col gap-4 w-7/12"}
+          onSubmit={methods.handleSubmit(handleSignIn)}
         >
-          Login
-        </button>
-        <button
-          className="px-4 py-2 rounded-md text-white bg-gradient-to-r font-bold from-[#2e026d] to-[#15162c]"
-          onClick={() => router.push("/signup")}
-        >
-          Sign Up
-        </button>
+          <div className={"grid gap-2"}>
+            <Label>Email</Label>
+            <Input
+              {...methods.register("email")}
+              placeholder="name@example.com"
+              type="email"
+              required
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+            />
+          </div>
+          <div className={"grid gap-2"}>
+            <Label>Password</Label>
+            <Input
+              {...methods.register("password")}
+              placeholder={"Enter you're email"}
+              required
+              type={"password"}
+            />
+          </div>
+          <Button type={"submit"} disabled={isLoading}>
+            {isLoading && (
+              <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+            )}
+            Sign In
+          </Button>
+        </form>
       </div>
     </div>
   );
