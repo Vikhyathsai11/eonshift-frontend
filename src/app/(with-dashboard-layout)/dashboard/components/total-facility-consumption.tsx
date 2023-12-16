@@ -1,6 +1,9 @@
 "use client";
 
+import { useMemo } from "react";
+
 import { doc, type DocumentReference } from "firebase/firestore";
+import { useSelector } from "react-redux";
 import { useFirestoreDocData } from "reactfire";
 
 import {
@@ -12,6 +15,7 @@ import {
 import { Skeleton } from "~/shared/shadcn/ui/skeleton";
 
 import { db } from "~/lib/firebase";
+import { type RootState } from "~/redux/store";
 import { type FacilityDocument } from "~/types";
 
 const ValueCard = ({ title, value }: { title: string; value: string }) => {
@@ -26,16 +30,17 @@ const ValueCard = ({ title, value }: { title: string; value: string }) => {
 };
 
 const TotalFacilityConsumption = () => {
-  const { data: facility, status } = useFirestoreDocData(
-    doc(
-      db,
-      "facilities",
-      "0173bd34-cb83-4569-9db6-8efa08fe3c2e",
-    ) as DocumentReference<FacilityDocument>,
-    {
-      initialData: null,
-    },
+  const { id: facilityId } = useSelector((state: RootState) => state.facility);
+
+  const query = useMemo(
+    () =>
+      doc(db, "facilities", facilityId) as DocumentReference<FacilityDocument>,
+    [facilityId],
   );
+
+  const { data: facility, status } = useFirestoreDocData(query, {
+    initialData: null,
+  });
 
   if (status === "loading" || !facility) {
     return (
@@ -46,6 +51,10 @@ const TotalFacilityConsumption = () => {
         <Skeleton className="h-24" />
       </section>
     );
+  }
+
+  if (status === "error") {
+    console.error("Error loading facility data", facility);
   }
 
   return (

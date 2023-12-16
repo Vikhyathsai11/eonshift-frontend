@@ -2,7 +2,7 @@ const LoadingPage = ({
   title = "Loading",
   description,
 }: {
-  title: string;
+  title?: string;
   description?: string;
 }) => {
   return (

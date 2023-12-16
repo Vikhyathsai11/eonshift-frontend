@@ -6,6 +6,7 @@ import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
 import { ReactFireProvider, ThemeProvider } from "~/providers";
+import ReduxProvider from "~/providers/ReduxProvider";
 import TailwindIndicator from "~/shared/custom/tailwind-indicator";
 
 import { cn } from "~/lib/utils";
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: { children: ReactElement }) {
           defaultTheme={"dark"}
           disableTransitionOnChange
         >
-          <ReactFireProvider>{children}</ReactFireProvider>
+          <ReactFireProvider>
+            <ReduxProvider>{children}</ReduxProvider>
+          </ReactFireProvider>
           <TailwindIndicator />
         </ThemeProvider>
       </body>

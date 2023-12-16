@@ -1,9 +1,15 @@
+export type FirebaseDate = {
+  nanoseconds: number;
+  seconds: number;
+};
+
 export type FacilityDocument = {
-  created_at: Date;
+  created_at: FirebaseDate;
+  updated_at: FirebaseDate;
   id: string;
   location: {
-    latitude: number;
-    longitude: number;
+    _lat: number;
+    _long: number;
   };
   name: string;
   owner_id: string;
@@ -14,5 +20,4 @@ export type FacilityDocument = {
     carbon_footprint: number;
   };
   type: string;
-  updated_at: Date;
 };
