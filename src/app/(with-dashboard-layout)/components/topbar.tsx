@@ -67,7 +67,7 @@ const FacilitySelector = () => {
       onValueChange={updateSelectedFacility}
       disabled={status === "loading"}
     >
-      <SelectTrigger className="w-[200px] bg-secondary/25">
+      <SelectTrigger className="w-[130px] lg:w-[200px] duration-150 bg-secondary/25">
         <SelectValue placeholder="Select Facility" />
       </SelectTrigger>
       <SelectContent>
@@ -88,7 +88,7 @@ const TopBar = () => {
         <Button variant={"outline"} size={"icon"} className={"mr-2 xl:hidden"}>
           <Icons.menu className={"h-4 w-4"} />
         </Button>
-        <div className={"flex flex-row gap-2"}>
+        <div className={"flex flex-row items-center gap-2"}>
           <h3
             className={
               "text-xl font-black leading-none tracking-tight lg:text-3xl text-primary mr-4"

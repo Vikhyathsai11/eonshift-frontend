@@ -29,22 +29,35 @@ const ValueCard = ({ title, value }: { title: string; value: string }) => {
   );
 };
 
+/**
+ * TotalFacilityConsumption is a React component that displays the total energy consumption
+ * of a facility. It fetches the facility data from Firestore and displays it in a grid of cards.
+ * Each card represents a different aspect of the facility's energy consumption.
+ *
+ * While the data is loading, it displays a skeleton loader.
+ *
+ * If there's an error loading the data, it logs the error to the console.
+ */
 const TotalFacilityConsumption = () => {
+  // The ID of the facility is fetched from the Redux store.
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
 
+  // A Firestore query is created to fetch the facility data.
   const query = useMemo(
     () =>
       doc(db, "facilities", facilityId) as DocumentReference<FacilityDocument>,
     [facilityId],
   );
 
+  // The facility data is fetched from Firestore.
   const { data: facility, status } = useFirestoreDocData(query, {
     initialData: null,
   });
 
+  // If the data is still loading or if there's no facility data, a skeleton loader is displayed.
   if (status === "loading" || !facility) {
     return (
-      <section className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 w-full">
         <Skeleton className="h-24" />
         <Skeleton className="h-24" />
         <Skeleton className="h-24" />
@@ -53,12 +66,14 @@ const TotalFacilityConsumption = () => {
     );
   }
 
+  // If there's an error loading the data, the error is logged to the console.
   if (status === "error") {
     console.error("Error loading facility data", facility);
   }
 
+  // If the data has loaded successfully, it is displayed in a grid of cards.
   return (
-    <section className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+    <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 w-full">
       <ValueCard
         title={"Total Energy Consumption"}
         value={`${facility?.total_consumption?.current_energy_usage} kWh`}
