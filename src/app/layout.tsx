@@ -1,15 +1,14 @@
 import "~/styles/globals.css";
 
 import { type ReactElement } from "react";
-import { Inter } from "next/font/google";
+
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 
 import { ReactFireProvider, ThemeProvider } from "~/providers";
 import TailwindIndicator from "~/shared/custom/tailwind-indicator";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+import { cn } from "~/lib/utils";
 
 export const metadata = {
   title: "EonShift",
@@ -19,8 +18,12 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: ReactElement }) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body className={`bg-background font-sans ${inter.variable}`}>
+    <html
+      lang="en"
+      className={cn(GeistSans.variable, GeistMono.variable)}
+      suppressHydrationWarning={true}
+    >
+      <body className={`bg-background font-sans`}>
         <ThemeProvider
           attribute={"class"}
           defaultTheme={"dark"}

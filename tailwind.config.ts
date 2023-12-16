@@ -138,7 +138,8 @@ export default {
         "tremor-metric": ["1.875rem", { lineHeight: "2.25rem" }],
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
       },
       borderRadius: {
         lg: "var(--radius)",

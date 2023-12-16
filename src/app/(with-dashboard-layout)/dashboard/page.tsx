@@ -7,25 +7,20 @@ import { signOut } from "firebase/auth";
 import { collection, orderBy, query, type Query } from "firebase/firestore";
 import { useAuth, useFirestoreCollectionData, useUser } from "reactfire";
 
-import { ThemeToggleButton } from "~/shared/custom";
 import { Button } from "~/shared/shadcn/ui/button";
 
 import SampleChart from "~/app/(with-dashboard-layout)/dashboard/components/sample";
+import TotalFacilityConsumption from "~/app/(with-dashboard-layout)/dashboard/components/total-facility-consumption";
 
 import { db } from "~/lib/firebase";
-
-interface Facility {
-  name: string;
-  id: string;
-  total_consumption: number;
-}
+import { type FacilityDocument } from "~/types";
 
 const Facilities = () => {
   const { data: facilities, status } = useFirestoreCollectionData(
     query(
       collection(db, "facilities"),
       orderBy("created_at", "desc"),
-    ) as Query<Facility>,
+    ) as Query<FacilityDocument>,
     {
       initialData: [],
     },
@@ -47,7 +42,7 @@ const Facilities = () => {
           <TremorCard key={facility.id}>
             <TremorText className={"pb-2"}>{facility.name}</TremorText>
             <Metric className={"font-bold"}>
-              {facility.total_consumption} kWh
+              {facility?.total_consumption?.current_energy_usage} kWh
             </Metric>
           </TremorCard>
         ))}
@@ -63,7 +58,8 @@ export default function HomePage() {
   const auth = useAuth();
 
   return (
-    <main>
+    <main className={"px-4 py-2"}>
+      <TotalFacilityConsumption />
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
           {status === "loading"
