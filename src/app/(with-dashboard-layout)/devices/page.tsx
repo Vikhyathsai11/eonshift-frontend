@@ -2,40 +2,26 @@
 
 import { useMemo } from "react";
 
-import { collection, orderBy, query, type Query } from "firebase/firestore";
+import { Card, Metric, Text } from "@tremor/react";
+import {
+  collection,
+  doc,
+  orderBy,
+  query,
+  updateDoc,
+  type Query,
+} from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
 
 import PageContainer from "~/shared/custom/page-container";
 import PageHeading from "~/shared/custom/page-heading";
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "~/shared/shadcn/ui/card";
+import { Button } from "~/shared/shadcn/ui/button";
 import { Separator } from "~/shared/shadcn/ui/separator";
 
 import { db } from "~/lib/firebase";
 import { type RootState } from "~/redux/store";
-import { type DeviceDocument, type FacilityDocument } from "~/types";
-
-const DeviceCard = ({
-  title,
-  value,
-}: {
-  title: string;
-  value: string | number;
-}) => {
-  return (
-    <Card className="flex flex-col">
-      <CardHeader>
-        <CardDescription>{title}</CardDescription>
-        <CardTitle className={"text-2xl font-bold"}>{value}</CardTitle>
-      </CardHeader>
-    </Card>
-  );
-};
+import { type DeviceDocument } from "~/types";
 
 const DevicesPage = () => {
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
@@ -54,23 +40,34 @@ const DevicesPage = () => {
     idField: "id",
   });
 
+  const handleDeviceToggle = async (deviceId: string, status: string) => {
+    const docRef = doc(db, "facilities", facilityId, "devices", deviceId);
+    await updateDoc(docRef, {
+      status: status === "active" ? "inactive" : "active",
+    });
+  };
+
   return (
     <PageContainer>
-      <PageHeading
-        mainTitle={"Devices"}
-        subTitle={"Manage all thesub devices"}
-      />
+      <PageHeading mainTitle={"Devices"} subTitle={"Manage all the devices"} />
       <Separator />
       {status === "loading" && <>Loading Devices</>}
       {status === "success" && devices && (
         <div className={"grid grid-cols-4 gap-2"}>
           {devices?.map((device) => {
             return (
-              <DeviceCard
-                key={device.id}
-                title={device.id}
-                value={`${device.energy_usage} kWh`}
-              />
+              <Card
+                decoration={"top"}
+                decorationColor={device?.status == "active" ? "green" : "rose"}
+              >
+                <Text>{device.id}</Text>
+                <Metric>{device.energy_usage}</Metric>
+                <Button
+                  onClick={() => handleDeviceToggle(device.id, device.status)}
+                >
+                  {device.status == "active" ? "Turn Off" : "Turn On"}
+                </Button>
+              </Card>
             );
           })}
         </div>

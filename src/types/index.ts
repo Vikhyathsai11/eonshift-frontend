@@ -26,5 +26,6 @@ export type DeviceDocument = {
   created_at: FirebaseDate;
   updated_at: FirebaseDate;
   energy_usage: number;
+  status: string;
   id: string;
 };
