@@ -73,17 +73,52 @@ const Login = () => {
   }
   return (
     <div className="flex flex-row items-center justify-center h-screen w-full">
-      <div className="w-7/12 h-full bg-white hidden xl:flex items-center justify-center">
-        <div className={"flex gap-2 items-center text-white dark:text-black"}>
-          <BatteryFull size={45} />
-          <h3 className={"text-5xl tracking-tight font-bold"}>EonShift</h3>
+      <div className="w-7/12 h-full bg-white hidden xl:flex items-center justify-center duration-150">
+        <div className={"hidden xl:flex flex-col gap-1"}>
+          <div className={"flex gap-2 items-center text-white dark:text-black"}>
+            <BatteryFull size={45} />
+            <h3 className={"text-5xl tracking-tight font-bold"}>EonShift</h3>
+          </div>
+          <h5
+            className={"text-center xl:text-left mb-8 font-medium text-muted"}
+          >
+            Shifting energy for better tomorrow
+          </h5>
         </div>
+        <h5
+          className={"text-white dark:text-black absolute bottom-8 font-medium"}
+        >
+          Made with ❤️ for Smart India Hackathon
+        </h5>
       </div>
       <div className={"flex items-center justify-center flex-auto h-full"}>
         <form
-          className={"flex flex-col gap-4 w-7/12"}
+          className={"flex flex-col gap-4 w-11/12 xl:w-8/12"}
           onSubmit={methods.handleSubmit(handleSignIn)}
         >
+          <div className={"grid gap-1"}>
+            <div
+              className={
+                "flex flex-row gap-2 justify-center xl:justify-start items-center"
+              }
+            >
+              <BatteryFull size={30} />
+              <h3
+                className={
+                  "text-3xl text-center xl:text-left tracking-tight font-bold"
+                }
+              >
+                EonShift
+              </h3>
+            </div>
+            <h5
+              className={
+                "text-center xl:text-left mb-8 font-medium text-muted-foreground"
+              }
+            >
+              Shifting energy for better tomorrow
+            </h5>
+          </div>
           <div className={"grid gap-2"}>
             <Label>Email</Label>
             <Input
@@ -100,7 +135,7 @@ const Login = () => {
             <Label>Password</Label>
             <Input
               {...methods.register("password")}
-              placeholder={"Enter you're email"}
+              placeholder={"Enter you're password"}
               required
               type={"password"}
             />
@@ -112,6 +147,13 @@ const Login = () => {
             Sign In
           </Button>
         </form>
+        <p
+          className={
+            "text-sm font-medium absolute bottom-8 block xl:hidden text-primary"
+          }
+        >
+          Made with ❤️ for Smart India Hackathon
+        </p>
       </div>
     </div>
   );
