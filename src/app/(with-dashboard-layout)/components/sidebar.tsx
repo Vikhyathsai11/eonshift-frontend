@@ -188,7 +188,7 @@ const SidebarList = memo(({ iconsOnly }: { iconsOnly: boolean }) => {
   const checkIfActive = useCallback(
     (href: string) => {
       if (href === "/") return pathname === href;
-      return pathname.startsWith(href);
+      return pathname?.startsWith(href);
     },
     [pathname],
   );
@@ -227,7 +227,7 @@ const SidebarList = memo(({ iconsOnly }: { iconsOnly: boolean }) => {
                           name={subPage.name}
                           link={subPage.href}
                           icon={subPage.icon}
-                          isActive={checkIfActive(subPage.href)}
+                          isActive={checkIfActive(subPage.href) as boolean}
                           isIconsOnly={iconsOnly}
                         />
                       ))}
@@ -243,7 +243,7 @@ const SidebarList = memo(({ iconsOnly }: { iconsOnly: boolean }) => {
                   name={page.name}
                   link={page?.href ?? ""}
                   icon={page?.icon ?? <></>}
-                  isActive={checkIfActive(page?.href ?? "")}
+                  isActive={checkIfActive(page?.href ?? "") as boolean}
                   isIconsOnly={iconsOnly}
                 />
               );
