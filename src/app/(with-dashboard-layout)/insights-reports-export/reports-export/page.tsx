@@ -11,7 +11,9 @@ const ReportsExport = () => {
     <PageContainer>
       <PageHeading
         mainTitle={"Reports & Exports"}
-        subTitle={"This page gives us the information about the Reports and Exports."}
+        subTitle={
+          "This page gives us the information about the Reports and Exports."
+        }
       />
       <Separator />
       <Text>Sample</Text>

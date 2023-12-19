@@ -11,7 +11,9 @@ const SettingsPage = () => {
     <PageContainer>
       <PageHeading
         mainTitle={"Settings Configuration"}
-        subTitle={"This page allows us to configure the settings of the working model."}
+        subTitle={
+          "This page allows us to configure the settings of the working model."
+        }
       />
       <Separator />
       <Text>Sample</Text>

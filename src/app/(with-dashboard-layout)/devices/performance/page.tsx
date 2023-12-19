@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { AreaChart, Card, Title } from "@tremor/react";
 
 const chartdata1 = [
@@ -11,7 +12,7 @@ const chartdata1 = [
     date: "Feb 1",
     Category1: 2899,
     Category2: 2880,
-  }
+  },
 ];
 
 const chartdata2 = [
@@ -24,7 +25,7 @@ const chartdata2 = [
     date: "Feb 1",
     Category1: 2899,
     Category2: 2880,
-  }
+  },
 ];
 
 const chartdata3 = [
@@ -37,7 +38,7 @@ const chartdata3 = [
     date: "Feb 1",
     Category1: 2899,
     Category2: 2880,
-  }
+  },
 ];
 
 const chartdata4 = [
@@ -50,7 +51,7 @@ const chartdata4 = [
     date: "Feb 1",
     Category1: 2899,
     Category2: 2880,
-  }
+  },
 ];
 
 const chartdata5 = [
@@ -63,7 +64,7 @@ const chartdata5 = [
     date: "Feb 1",
     Category1: 2899,
     Category2: 2880,
-  }
+  },
 ];
 
 const valueFormatter = function (number1) {
@@ -130,7 +131,6 @@ const PerformancePage = () => (
         valueFormatter={valueFormatter}
       />
     </Card>
-
   </div>
 );
 

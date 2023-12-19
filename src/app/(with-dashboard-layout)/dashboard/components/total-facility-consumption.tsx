@@ -98,15 +98,16 @@
 // export default TotalFacilityConsumption;
 
 import React from "react";
+
 import {
   AreaChart,
   Card,
   Metric,
-  TabList,
   Tab,
   TabGroup,
-  TabPanels,
+  TabList,
   TabPanel,
+  TabPanels,
 } from "@tremor/react";
 
 const data = [
@@ -125,16 +126,8 @@ const data = [
   },
 ];
 
-const numberFormatter = (value) => Intl.NumberFormat("us").format(value).toString();
-
-const percentageFormatter = (value) =>
-  `${Intl.NumberFormat("us")
-    .format(value * 100)
-    .toString()}%`;
-
-function sumArray(array, metric) {
-  return array.reduce((accumulator, currentValue) => accumulator + currentValue[metric], 0);
-}
+const numberFormatter = (value: number) =>
+  Intl.NumberFormat("us").format(value).toString();
 
 // Placeholder components for Usage and Performance
 const UsageComponent = () => (
@@ -177,12 +170,8 @@ export default function Example() {
             </Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
-              {/* Content for Usage TabPanel */}
-            </TabPanel>
-            <TabPanel>
-              {/* Content for Performance TabPanel */}
-            </TabPanel>
+            <TabPanel>{/* Content for Usage TabPanel */}</TabPanel>
+            <TabPanel>{/* Content for Performance TabPanel */}</TabPanel>
           </TabPanels>
         </TabGroup>
       </div>

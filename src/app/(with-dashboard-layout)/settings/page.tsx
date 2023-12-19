@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Text } from "@tremor/react";
@@ -12,7 +11,9 @@ const SettingsPage = () => {
     <PageContainer>
       <PageHeading
         mainTitle={"Settings"}
-        subTitle={"This page allows us to access the settings of the working model."}
+        subTitle={
+          "This page allows us to access the settings of the working model."
+        }
       />
       <Separator />
       <Text>Sample</Text>

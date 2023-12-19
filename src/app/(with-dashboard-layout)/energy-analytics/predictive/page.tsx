@@ -11,7 +11,9 @@ const PredictiveAnalysis = () => {
     <PageContainer>
       <PageHeading
         mainTitle={"Predictive Analysis"}
-        subTitle={"This page Predicts and analyses the data from the working model"}
+        subTitle={
+          "This page Predicts and analyses the data from the working model"
+        }
       />
       <Separator />
       <Text>Sample</Text>
