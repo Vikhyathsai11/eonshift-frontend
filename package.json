@@ -17,6 +17,7 @@
     "@heroicons/react": "^2.0.18",
     "@hookform/devtools": "^4.3.1",
     "@hookform/resolvers": "^3.3.2",
+    "@nivo/line": "^0.84.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",

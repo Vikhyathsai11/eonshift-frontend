@@ -1,8 +1,21 @@
+"use client";
+
+import { Text } from "@tremor/react";
+
+import PageContainer from "~/shared/custom/page-container";
+import PageHeading from "~/shared/custom/page-heading";
+import { Separator } from "~/shared/shadcn/ui/separator";
+
 const SettingsPage = () => {
   return (
-    <div className={"p-4"}>
-      <h1 className={"text-2xl font-bold"}>Settings configuration</h1>
-    </div>
+    <PageContainer>
+      <PageHeading
+        mainTitle={"Settings Configuration"}
+        subTitle={"This page allows us to configure the settings of the working model."}
+      />
+      <Separator />
+      <Text>Sample</Text>
+    </PageContainer>
   );
 };
 

@@ -1,8 +1,21 @@
+"use client";
+
+import { Text } from "@tremor/react";
+
+import PageContainer from "~/shared/custom/page-container";
+import PageHeading from "~/shared/custom/page-heading";
+import { Separator } from "~/shared/shadcn/ui/separator";
+
 const User = () => {
   return (
-    <div className={"p-4"}>
-      <h1 className={"text-2xl font-bold"}>UserInfo</h1>
-    </div>
+    <PageContainer>
+      <PageHeading
+        mainTitle={"UserInfo"}
+        subTitle={"This page gives us the information about the user."}
+      />
+      <Separator />
+      <Text>Sample</Text>
+    </PageContainer>
   );
 };
 
