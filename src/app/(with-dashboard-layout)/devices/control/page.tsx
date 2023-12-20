@@ -54,6 +54,12 @@ const ControlDevices = () => {
     setLoadingDeviceId(null);
   };
 
+  const toggleAllDevices = (toggleStatus: string) => {
+    devices.forEach((device) => {
+      handleDeviceToggle(device.id, toggleStatus);
+    });
+  };
+
   return (
     <PageContainer>
       <PageHeading
@@ -63,19 +69,34 @@ const ControlDevices = () => {
       <Separator />
       {status === "loading" && <>Loading Devices</>}
       {status === "success" && devices && (
-        <div
-          className={
-            "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2"
-          }
-        >
-          {devices?.map((device) => {
-            return (
+        <>
+          <div className={"mb-4"}>
+            <h1>
+              Use the below buttons to switch on and switch off all the devices.
+            </h1>
+            <Button
+              size={"sm"}
+              onClick={() => toggleAllDevices("active")}
+              disabled={loadingDeviceId !== null}
+            >
+              Turn On All Devices
+            </Button>{" "}
+            <Button
+              size={"sm"}
+              onClick={() => toggleAllDevices("inactive")}
+              disabled={loadingDeviceId !== null}
+            >
+              Turn Off All Devices
+            </Button>
+          </div>
+          <div
+            className={"grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2"}
+          >
+            {devices.map((device) => (
               <Card
+                key={device.id}
                 decoration={"top"}
-                decorationColor={device?.status == "active" ? "green" : "rose"}
-                onClick={() => {
-                  router.push(`/devices/${device.id}`);
-                }}
+                decorationColor={device.status === "active" ? "green" : "red"}
               >
                 <Text>{device.id}</Text>
                 <Metric>{device.energy_usage} kWh</Metric>
@@ -93,12 +114,12 @@ const ControlDevices = () => {
                   {loadingDeviceId === device.id && (
                     <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                   )}
-                  {device.status == "active" ? "Turn Off" : "Turn On"}
+                  {device.status === "active" ? "Turn Off" : "Turn On"}
                 </Button>
               </Card>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+        </>
       )}
     </PageContainer>
   );

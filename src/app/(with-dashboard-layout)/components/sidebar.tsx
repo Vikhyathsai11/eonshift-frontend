@@ -21,6 +21,7 @@ import {
   Settings,
   ThermometerSun,
   User,
+  SpeakerIcon,
 } from "lucide-react";
 
 import { Button } from "~/shared/shadcn/ui/button";
@@ -39,7 +40,6 @@ import {
 
 import { Icons } from "~/lib/icons";
 import { cn } from "~/lib/utils";
-
 const pages: Record<
   string,
   {
@@ -63,7 +63,7 @@ const pages: Record<
     subTitle: "Device Management",
     subMenu: [
       {
-        name: "Control Devices",
+        name: "Devices",
         href: "/devices/control",
         icon: <Grid />,
       },
@@ -99,17 +99,28 @@ const pages: Record<
         icon: <Lightbulb />,
       },
       {
-        name: "Reports",
+        name: "Reports & Exports",
         href: "/insights-reports-export/reports-export",
         icon: <FileText />,
       },
     ],
   },
+
+  alerts: {
+    subTitle: "Alerts",
+    subMenu: [
+      {
+        name: "Alerts",
+        href: "/alerts",
+        icon: <SpeakerIcon />,
+      },
+    ], 
+  }, 
   settings: {
     subTitle: "Settings",
     subMenu: [
       {
-        name: "Configuration",
+        name: "Settings & Configuration",
         href: "/settings-configuration/system",
         icon: <Settings />,
       },
