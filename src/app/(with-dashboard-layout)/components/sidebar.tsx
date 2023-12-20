@@ -18,7 +18,7 @@ import {
   LayoutPanelLeft,
   LifeBuoy,
   Lightbulb,
-  Sliders,
+  Settings,
   ThermometerSun,
   User,
 } from "lucide-react";
@@ -74,21 +74,21 @@ const pages: Record<
       },
     ],
   },
-  analytics: {
-    subTitle: "Energy Analytics",
-    subMenu: [
-      {
-        name: "Historical Data",
-        href: "/energy-analytics/historical",
-        icon: <Clock />,
-      },
-      {
-        name: "Predictive Analysis",
-        href: "/energy-analytics/predictive",
-        icon: <ThermometerSun />,
-      },
-    ],
-  },
+  // analytics: {
+  //   subTitle: "Energy Analytics",
+  //   subMenu: [
+  //     {
+  //       name: "Historical Data",
+  //       href: "/energy-analytics/historical",
+  //       icon: <Clock />,
+  //     },
+  //     {
+  //       name: "Predictive Analysis",
+  //       href: "/energy-analytics/predictive",
+  //       icon: <ThermometerSun />,
+  //     },
+  //   ],
+  // },
 
   insightsAndReports: {
     subTitle: "Insights & Reports",
@@ -99,7 +99,7 @@ const pages: Record<
         icon: <Lightbulb />,
       },
       {
-        name: "Reports & Export",
+        name: "Reports",
         href: "/insights-reports-export/reports-export",
         icon: <FileText />,
       },
@@ -111,7 +111,7 @@ const pages: Record<
       {
         name: "Configuration",
         href: "/settings-configuration/system",
-        icon: <Sliders />,
+        icon: <Settings />,
       },
       {
         name: "User Management",
