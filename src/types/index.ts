@@ -1,11 +1,12 @@
-export type FirebaseDate = {
-  nanoseconds: number;
-  seconds: number;
-};
+import { firestore } from "firebase-admin";
+
+import Timestamp = firestore.Timestamp;
+
+export type FirebaseDate = Timestamp;
 
 export type FacilityDocument = {
-  created_at: FirebaseDate;
-  updated_at: FirebaseDate;
+  created_at?: FirebaseDate;
+  updated_at?: FirebaseDate;
   id: string;
   location: {
     _lat: number;
@@ -24,8 +25,19 @@ export type FacilityDocument = {
 
 export type DeviceDocument = {
   created_at: FirebaseDate;
-  updated_at: FirebaseDate;
+  last_updated: FirebaseDate;
+  name: string;
+  type: string;
+  location: string;
+  manufacturer: string;
   energy_usage: number;
   status: string;
   id: string;
+};
+
+export type EnergyDocument = {
+  id: string;
+  timestamp: FirebaseDate;
+  energy_consumption: number;
+  device_id: string;
 };

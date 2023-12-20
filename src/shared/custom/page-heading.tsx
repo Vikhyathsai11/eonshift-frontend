@@ -2,8 +2,18 @@
 
 import { memo } from "react";
 
+import { Text } from "@tremor/react";
+
 const PageHeading = memo(
-  ({ mainTitle, subTitle }: { mainTitle: string; subTitle?: string }) => {
+  ({
+    mainTitle,
+    subTitle,
+    updatedBy,
+  }: {
+    mainTitle: string;
+    subTitle?: string;
+    updatedBy?: string;
+  }) => {
     return (
       <div>
         <h3 className="text-xl font-bold tracking-tight duration-150 lg:text-2xl">
@@ -14,6 +24,7 @@ const PageHeading = memo(
             {subTitle}
           </h5>
         )}
+        {updatedBy && <Text>{updatedBy}</Text>}
       </div>
     );
   },

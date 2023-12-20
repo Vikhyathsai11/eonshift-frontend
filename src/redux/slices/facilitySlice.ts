@@ -4,14 +4,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { type FacilityDocument } from "~/types";
 
 const initialState: FacilityDocument = {
-  created_at: {
-    nanoseconds: 0,
-    seconds: 0,
-  },
-  updated_at: {
-    nanoseconds: 0,
-    seconds: 0,
-  },
   id: "",
   location: {
     _lat: 0,
