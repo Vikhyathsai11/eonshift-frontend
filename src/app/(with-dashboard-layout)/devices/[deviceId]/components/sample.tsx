@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 import {
-  ArrowRightIcon,
-  ArrowTrendingDownIcon,
-  ArrowTrendingUpIcon,
-} from "@heroicons/react/24/solid";
+  ArrowNarrowDownIcon,
+  ArrowNarrowRightIcon,
+  ArrowUpIcon,
+} from "@heroicons/react/solid";
 import {
   Button,
   Callout,
@@ -79,7 +79,7 @@ export default function EnergyConsumptionComparision() {
             </Flex>
             <Callout
               title="7.8% above peer average"
-              icon={ArrowTrendingUpIcon}
+              icon={ArrowUpIcon}
               color="emerald"
               className="mt-4"
             >
@@ -108,7 +108,7 @@ export default function EnergyConsumptionComparision() {
             </Flex>
             <Callout
               title="-14.8% below yesterday"
-              icon={ArrowTrendingDownIcon}
+              icon={ArrowNarrowDownIcon}
               color="rose"
               className="mt-4"
             >
@@ -120,7 +120,7 @@ export default function EnergyConsumptionComparision() {
       <Button
         size="sm"
         variant="light"
-        icon={ArrowRightIcon}
+        icon={ArrowNarrowRightIcon}
         iconPosition="right"
         color="slate"
         className="mt-5"
