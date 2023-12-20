@@ -19,9 +19,9 @@ import {
   LifeBuoy,
   Lightbulb,
   Settings,
+  SpeakerIcon,
   ThermometerSun,
   User,
-  SpeakerIcon,
 } from "lucide-react";
 
 import { Button } from "~/shared/shadcn/ui/button";
@@ -40,6 +40,7 @@ import {
 
 import { Icons } from "~/lib/icons";
 import { cn } from "~/lib/utils";
+
 const pages: Record<
   string,
   {
@@ -114,8 +115,8 @@ const pages: Record<
         href: "/alerts",
         icon: <SpeakerIcon />,
       },
-    ], 
-  }, 
+    ],
+  },
   settings: {
     subTitle: "Settings",
     subMenu: [

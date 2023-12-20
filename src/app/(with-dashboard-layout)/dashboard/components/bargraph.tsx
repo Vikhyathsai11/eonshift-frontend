@@ -29,99 +29,99 @@ const BarChartExample = () => {
         return [
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 253, // Replace with actual data
+            Category: 253, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 181, // Replace with actual data
+            Category: 181, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 211, // Replace with actual data
+            Category: 211, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 253, // Replace with actual data
+            Category: 253, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 181, // Replace with actual data
+            Category: 181, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 211, // Replace with actual data
+            Category: 211, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 253, // Replace with actual data
+            Category: 253, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 181, // Replace with actual data
+            Category: 181, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 211, // Replace with actual data
+            Category: 211, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           // Add more data points as needed for the last 24 hours
         ];
@@ -129,31 +129,31 @@ const BarChartExample = () => {
         return [
           {
             name: getPastDate(7 * 24),
-            "Category": 232, // Replace with actual data
+            Category: 232, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 242, // Replace with actual data
+            Category: 242, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 277, // Replace with actual data
+            Category: 277, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 198, // Replace with actual data
+            Category: 198, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 173, // Replace with actual data
+            Category: 173, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 100, // Replace with actual data
+            Category: 100, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 200, // Replace with actual data
+            Category: 200, // Replace with actual data
           },
           // Add more data points as needed for the last 7 days
         ];
@@ -161,125 +161,124 @@ const BarChartExample = () => {
         return [
           {
             name: getPastDate(30 * 24),
-            "Category": 232, // Replace with actual data
+            Category: 232, // Replace with actual data
           },
           {
             name: getPastDate(30 * 24),
-            "Category": 232, // Replace with actual data
+            Category: 232, // Replace with actual data
           },
           {
             name: getPastDate(30 * 24),
-            "Category": 221, // Replace with actual data
+            Category: 221, // Replace with actual data
           },
           {
             name: getPastDate(30 * 24),
-            "Category": 198, // Replace with actual data
+            Category: 198, // Replace with actual data
           },
           {
             name: getPastDate(30 * 24),
-            "Category": 110, // Replace with actual data
+            Category: 110, // Replace with actual data
           },
           {
             name: getPastDate(30 * 24),
-            "Category": 86, // Replace with actual data
+            Category: 86, // Replace with actual data
           },
           {
             name: getPastDate(30 * 24),
-            "Category": 77, // Replace with actual data
+            Category: 77, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 253, // Replace with actual data
+            Category: 253, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 181, // Replace with actual data
+            Category: 181, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 211, // Replace with actual data
+            Category: 211, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 253, // Replace with actual data
+            Category: 253, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 181, // Replace with actual data
+            Category: 181, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 211, // Replace with actual data
+            Category: 211, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 253, // Replace with actual data
+            Category: 253, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 181, // Replace with actual data
+            Category: 181, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 211, // Replace with actual data
+            Category: 211, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
-
         ]; // Last 30 days
         // Replace with data for the last 30 days
         break;
@@ -287,51 +286,51 @@ const BarChartExample = () => {
         return [
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 281, // Replace with actual data
+            Category: 281, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 152, // Replace with actual data
+            Category: 152, // Replace with actual data
           },
           {
             name: getCurrentDate(),
-            "Category": 332, // Replace with actual data
+            Category: 332, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 92, // Replace with actual data
+            Category: 92, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 78, // Replace with actual data
+            Category: 78, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 54, // Replace with actual data
+            Category: 54, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 232, // Replace with actual data
+            Category: 232, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 342, // Replace with actual data
+            Category: 342, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 300, // Replace with actual data
+            Category: 300, // Replace with actual data
           },
           {
             name: getPastDate(7 * 24),
-            "Category": 240, // Replace with actual data
+            Category: 240, // Replace with actual data
           },
         ]; // Last 12 months
         // Replace with data for the last 12 months
@@ -374,4 +373,3 @@ const BarChartExample = () => {
 };
 
 export default BarChartExample;
-
