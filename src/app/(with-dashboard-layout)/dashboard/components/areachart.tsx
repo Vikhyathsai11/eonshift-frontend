@@ -1,17 +1,18 @@
 import { useState } from "react";
+
 import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
 import {
-  Card,
-  TabList,
-  Tab,
-  ProgressBar,
-  Text,
-  Flex,
-  Button,
-  Metric,
-  BadgeDelta,
   AreaChart,
+  BadgeDelta,
+  Button,
+  Card,
+  Flex,
+  Metric,
+  ProgressBar,
+  Tab,
   TabGroup,
+  TabList,
+  Text,
 } from "@tremor/react";
 
 const sales = [
@@ -30,7 +31,14 @@ const sales = [
   },
 ];
 
-const products = [
+interface Product {
+  title: string;
+  value: number;
+  metric: string;
+  location: string;
+}
+
+const products: Product[] = [
   {
     title: "Product A",
     value: 38,
@@ -52,7 +60,8 @@ const products = [
   },
 ];
 
-const valueFormatter = (number) => `$${Intl.NumberFormat("us").format(number).toString()}`;
+const valueFormatter = (number: number) =>
+  `$${Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function Example() {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -64,7 +73,11 @@ export default function Example() {
         <Text>Total Sales</Text>
         <BadgeDelta deltaType="moderateIncrease">23.1%</BadgeDelta>
       </Flex>
-      <Flex justifyContent="start" alignItems="baseline" className="space-x-3 truncate">
+      <Flex
+        justifyContent="start"
+        alignItems="baseline"
+        className="space-x-3 truncate"
+      >
         <Metric>$442,276</Metric>
         <Text>from $382,482</Text>
       </Flex>
@@ -79,15 +92,19 @@ export default function Example() {
         startEndOnly={true}
         valueFormatter={valueFormatter}
       />
-      <TabGroup className="mt-4" index={selectedIndex} onIndexChange={setSelectedIndex}>
+      <TabGroup
+        className="mt-4"
+        index={selectedIndex}
+        onIndexChange={setSelectedIndex}
+      >
         <TabList>
           <Tab>Location A</Tab>
           <Tab>Location B</Tab>
         </TabList>
       </TabGroup>
       {products
-        .filter((item: any) => item.location === selectedLocation)
-        .map((item: any) => (
+        .filter((item: Product) => item.location === selectedLocation)
+        .map((item: Product) => (
           <div key={item.title} className="mt-4 space-y-2">
             <Flex>
               <Text>{item.title}</Text>
@@ -97,7 +114,12 @@ export default function Example() {
           </div>
         ))}
       <Flex className="mt-6 pt-4 border-t">
-        <Button size="xs" variant="light" icon={ArrowNarrowRightIcon} iconPosition="right">
+        <Button
+          size="xs"
+          variant="light"
+          icon={ArrowNarrowRightIcon}
+          iconPosition="right"
+        >
           View more
         </Button>
       </Flex>

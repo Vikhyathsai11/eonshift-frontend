@@ -23,8 +23,6 @@ export default function DeviceConsumptionCard({
 }: {
   device: DeviceDocument;
 }) {
-  console.log("device", device);
-
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
   const past12EnergyConsumptionsQuery = useMemo(
     () =>
@@ -74,7 +72,7 @@ export default function DeviceConsumptionCard({
         data={formattedData}
         categories={["Energy Consumption"]}
         index="timestamp"
-        placeholder={"No Data Available"}
+        // placeholder={"No Data Available"}
         colors={["blue", "fuchsia"]}
         valueFormatter={valueFormatter}
       />

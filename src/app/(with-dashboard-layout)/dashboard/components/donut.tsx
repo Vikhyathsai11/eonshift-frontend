@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
+
 import {
   BadgeDelta,
   Card,
   DeltaType,
   DonutChart,
-  Select,
-  SelectItem,
   Flex,
   Legend,
   List,
   ListItem,
+  Select,
+  SelectItem,
   Title,
 } from "@tremor/react";
+import { number, string } from "zod";
 
 const regions = [
   { key: "all", name: "All Regions" },
@@ -19,8 +21,15 @@ const regions = [
   { key: "europe", name: "Europe" },
   { key: "asia", name: "Asia" },
 ];
+interface Cities {
+  name: string;
+  region: string;
+  sales: number;
+  delta: string;
+  deltaType: string;
+}
 
-const cities = [
+const cities: Cities[] = [
   {
     name: "New York",
     region: "us",
@@ -72,10 +81,11 @@ const cities = [
   },
 ];
 
-const filterByRegion = (region, data) =>
+const filterByRegion = (region: string, data: Cities[]) =>
   region === "all" ? data : data.filter((city) => city.region === region);
 
-const valueFormatter = (number) => `$${Intl.NumberFormat("us").format(number).toString()}`;
+const valueFormatter = (number: number) =>
+  `$${Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function Example() {
   const [selectedRegion, setSelectedRegion] = useState("all");
@@ -90,7 +100,10 @@ export default function Example() {
     <Card className="max-w-md mx-auto">
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
         <Title>Sales</Title>
-        <Select onValueChange={setSelectedRegion} placeholder="Region Selection">
+        <Select
+          onValueChange={setSelectedRegion}
+          placeholder="Region Selection"
+        >
           {regions.map((region) => (
             <SelectItem key={region.key} value={region.key}>
               {region.name}
@@ -98,7 +111,10 @@ export default function Example() {
           ))}
         </Select>
       </Flex>
-      <Legend categories={filteredData.map((city) => city.name)} className="mt-6" />
+      <Legend
+        categories={filteredData.map((city) => city.name)}
+        className="mt-6"
+      />
       <DonutChart
         data={filteredData}
         category="sales"

@@ -1,12 +1,27 @@
 import { useState } from "react";
+
 import { CodeIcon, TableIcon } from "@heroicons/react/solid";
-import { Title, Text, Card, Flex, Tab, TabList, Bold, BarList, TabGroup } from "@tremor/react";
+import {
+  BarList,
+  Bold,
+  Card,
+  Flex,
+  Tab,
+  TabGroup,
+  TabList,
+  Text,
+  Title,
+} from "@tremor/react";
+import { number, Values } from "zod";
 
 const categories = [
   { key: "developers", name: "Developers", icon: CodeIcon },
   { key: "analysts", name: "Analysts", icon: TableIcon },
 ];
-
+interface Visits {
+  name: string;
+  value: number;
+}
 const developerVisits = [
   { name: "/home", value: 652 },
   { name: "/about", value: 134 },
@@ -30,7 +45,7 @@ const visits = {
   analysts: analystVisits,
 };
 
-const sortData = (data) =>
+const sortData = (data: Visits[]) =>
   data.sort((a, b) => {
     if (a.value < b.value) return 1;
     if (a.value > b.value) return -1;
@@ -44,7 +59,11 @@ export default function Example() {
   return (
     <Card className="max-w-md mx-auto">
       <Title>Page Visits by Audience</Title>
-      <TabGroup index={selectedIndex} onIndexChange={setSelectedIndex} className="mt-6">
+      <TabGroup
+        index={selectedIndex}
+        onIndexChange={setSelectedIndex}
+        className="mt-6"
+      >
         <TabList>
           {categories.map((category) => (
             <Tab key={category.key} value={category.key} icon={category.icon}>
@@ -61,7 +80,11 @@ export default function Example() {
           <Bold>Visits</Bold>
         </Text>
       </Flex>
-      <BarList data={sortData(visits[selectedCategory])} showAnimation={false} className="mt-4" />
+      <BarList
+        data={sortData(visits[selectedCategory])}
+        showAnimation={false}
+        className="mt-4"
+      />
     </Card>
   );
 }
