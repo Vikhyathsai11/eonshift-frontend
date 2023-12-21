@@ -109,7 +109,7 @@ export default function Example() {
           <Bold>Device</Bold>
         </Text>
         <Text>
-          <Bold>Energy Consumed (kWh)</Bold>
+          <Bold>Energy Consumed (mWh)</Bold>
         </Text>
       </Flex>
       <BarList data={sortData(visits)} showAnimation={false} className="mt-4" />

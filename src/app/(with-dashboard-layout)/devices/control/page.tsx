@@ -91,26 +91,11 @@ const ControlDevices = () => {
                 }}
               >
                 <Text>{device.name}</Text>
-                <Metric>{device.energy_usage} kWh</Metric>
+                <Metric>{device.energy_usage} mWh</Metric>
                 <p className={"text-muted-foreground text-xs"}>
                   Last Updated:{" "}
                   {moment(device?.last_updated?.toDate()).fromNow()}
                 </p>
-                {/*<Button*/}
-                {/*  size={"sm"}*/}
-                {/*  onClick={async (event) => {*/}
-                {/*    event.stopPropagation();*/}
-                {/*    await handleDeviceToggle(*/}
-                {/*      device.id,*/}
-                {/*      device.status === "active" ? "inactive" : "active",*/}
-                {/*    );*/}
-                {/*  }}*/}
-                {/*>*/}
-                {/*  {loadingDeviceId === device.id && (*/}
-                {/*    <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />*/}
-                {/*  )}*/}
-                {/*  {device.status === "active" ? "Turn Off" : "Turn On"}*/}
-                {/*</Button>*/}
               </Card>
             ))}
           </div>

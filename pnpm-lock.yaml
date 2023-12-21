@@ -948,7 +948,7 @@ packages:
     dev: false
 
   /@firebase/messaging@0.12.5(@firebase/app@0.9.25):
-    resolution: {integrity: sha512-i/rrEI2k9ueFhdIr8KQsptWGskrsnkC5TkohCTrJKz9P0C/PbNv14IAMkwhMJTqIur5VwuOnrUkc9Kdz7awekw==}
+    resolution: {integrity: sha512-i/rrEI2k9ueFhdIr8KQsptWGskrsnkC5TkohCTrJKz9P0C/PbNv14IAMmWhMJTqIur5VwuOnrUkc9Kdz7awekw==}
     peerDependencies:
       '@firebase/app': 0.x
     dependencies:
@@ -1398,7 +1398,7 @@ packages:
     optional: true
 
   /@next/swc-linux-arm64-musl@14.0.4:
-    resolution: {integrity: sha512-8QftwPEW37XxXoAwsn+nXlodKWHfpMaSvt81W43Wh8dv0gkheD+30ezWMcFGHLI71KiWmHK5PSQbTQGUiidvLQ==}
+    resolution: {integrity: sha512-8QftwPEW37XxXoAwsn+nXlodmWhfpMaSvt81W43Wh8dv0gkheD+30ezWMcFGHLI71KiWmHK5PSQbTQGUiidvLQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]

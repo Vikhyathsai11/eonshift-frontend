@@ -85,7 +85,7 @@ const filterByRegion = (region: string, data: Cities[]) =>
   region === "all" ? data : data.filter((city) => city.region === region);
 
 const valueFormatter = (number: number) =>
-  `kWh ${Intl.NumberFormat("us").format(number).toString()}`;
+  `mWh ${Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function Example() {
   const [selectedRegion, setSelectedRegion] = useState("all");

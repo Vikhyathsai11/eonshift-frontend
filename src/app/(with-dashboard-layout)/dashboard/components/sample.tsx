@@ -34,7 +34,7 @@ const chartdata = [
 ];
 
 const valueFormatter = function (number: number): string {
-  return new Intl.NumberFormat("us").format(number).toString() + " kWh";
+  return new Intl.NumberFormat("us").format(number).toString() + " mWh";
 };
 
 const SampleChart = () => (
