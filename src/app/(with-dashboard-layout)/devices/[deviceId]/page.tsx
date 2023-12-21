@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 
-import { Card, Col, Grid, Legend, Metric, Text } from "@tremor/react";
+import { Card, Col, Grid, Legend, Metric, Switch, Text } from "@tremor/react";
+import axios from "axios";
 import { doc, type DocumentReference } from "firebase/firestore";
 import moment from "moment";
 import { useSelector } from "react-redux";
@@ -37,6 +38,8 @@ const DeviceInfoText = ({ title, value }: { title: string; value: string }) => {
 const DevicePage = ({ params }: { params: { deviceId: string } }) => {
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
 
+  const [loadingDeviceId, setLoadingDeviceId] = useState<string | null>(null);
+
   const query = useMemo(() => {
     return doc(
       db,
@@ -51,6 +54,20 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
     initialData: null,
     suspense: true,
   });
+
+  const handleDeviceToggle = async (deviceId: string, status: string) => {
+    setLoadingDeviceId(deviceId);
+    await axios({
+      method: "post",
+      url: "/api/publish",
+      data: {
+        status,
+        deviceId,
+        facilityId,
+      },
+    });
+    setLoadingDeviceId(null);
+  };
 
   if (status === "loading" || !device) {
     return (
@@ -98,7 +115,6 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
         }
       />
       <Separator />
-
       {/*<DeviceDetails />*/}
       <Tabs defaultValue="overview" className="w-full">
         <TabsList>
@@ -151,8 +167,34 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                   />
                 </div>
               </Card>
+              <Card className={"p-4 mt-4"}>
+                <div
+                  className={"flex flex-row gap-2 items-center justify-between"}
+                >
+                  <Text className={"font-medium"}>Controls</Text>
+                </div>
+                <Separator className={"my-2"} />
+                <div className={"flex flex-col gap-2"}>
+                  <div className={"flex flex-row gap-2"}>
+                    <Switch
+                      name={"Toggle Device"}
+                      checked={device.status === "active"}
+                      onChange={async () => {
+                        await handleDeviceToggle(
+                          device.id,
+                          device.status === "active" ? "inactive" : "active",
+                        );
+                      }}
+                    />
+                    <label className={"text-sm text-muted-foreground"}>
+                      {device.status === "active"
+                        ? "Deactivate Device"
+                        : "Activate Device"}
+                    </label>
+                  </div>
+                </div>
+              </Card>
             </Col>
-
             {/*<Card>*/}
             {/*  <Text>Current Energy Consumption</Text>*/}
             {/*  <Metric>{device.energy_usage} mWh</Metric>*/}
