@@ -24,7 +24,42 @@ const sales = [
     Month: "Feb 21",
     Sales: 1890,
   },
-  // ...
+  {
+    Month: "Mar 21",
+    Sales: 2890,
+  },
+  {
+    Month: "Apr 21",
+    Sales: 1890,
+  },
+  {
+    Month: "May 21",
+    Sales: 2890,
+  },
+  {
+    Month: "Jun 21",
+    Sales: 1890,
+  },
+  {
+    Month: "Jul 21",
+    Sales: 2890,
+  },
+  {
+    Month: "Aug 21",
+    Sales: 1890,
+  },
+  {
+    Month: "Sep 21",
+    Sales: 2890,
+  },
+  {
+    Month: "Oct 21",
+    Sales: 1890,
+  },
+  {
+    Month: "Nov 21",
+    Sales: 2890,
+  },
   {
     Month: "Dec 21",
     Sales: 3350,
@@ -42,20 +77,26 @@ const products: Product[] = [
   {
     title: "Product A",
     value: 38,
-    metric: "$ 100,838",
+    metric: "100,838",
     location: "A",
   },
   {
     title: "Product B",
     value: 34,
-    metric: "$ 90,224",
+    metric: "90,224",
     location: "A",
   },
   // ...
   {
-    title: "Product N",
+    title: "Product M",
     value: 8,
-    metric: "$ 10,614",
+    metric: "10,614",
+    location: "B",
+  },
+  {
+    title: "Product N",
+    value: 9,
+    metric: "11,814",
     location: "B",
   },
 ];
@@ -70,7 +111,7 @@ export default function Example() {
   return (
     <Card className="max-w-md mx-auto">
       <Flex alignItems="start">
-        <Text>Total Sales</Text>
+        <Text>Energy Consumption</Text>
         <BadgeDelta deltaType="moderateIncrease">23.1%</BadgeDelta>
       </Flex>
       <Flex
@@ -78,8 +119,8 @@ export default function Example() {
         alignItems="baseline"
         className="space-x-3 truncate"
       >
-        <Metric>$442,276</Metric>
-        <Text>from $382,482</Text>
+        <Metric>123</Metric>
+        <Text>kWh</Text>
       </Flex>
       <AreaChart
         className="mt-10 h-48"
@@ -113,7 +154,7 @@ export default function Example() {
             <ProgressBar value={item.value} />
           </div>
         ))}
-      <Flex className="mt-6 pt-4 border-t">
+      {/* <Flex className="mt-6 pt-4 border-t">
         <Button
           size="xs"
           variant="light"
@@ -122,7 +163,7 @@ export default function Example() {
         >
           View more
         </Button>
-      </Flex>
+      </Flex> */}
     </Card>
   );
 }

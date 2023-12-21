@@ -31,49 +31,49 @@ interface Cities {
 
 const cities: Cities[] = [
   {
-    name: "New York",
+    name: "Device-1",
     region: "us",
     sales: 984888,
     delta: "6.1%",
     deltaType: "increase",
   },
   {
-    name: "London",
+    name: "Device-2",
     region: "europe",
     sales: 456700,
     delta: "1.2%",
     deltaType: "moderateDecrease",
   },
   {
-    name: "San Francisco",
+    name: "Device-3",
     region: "us",
     sales: 240000,
     delta: "2.3%",
     deltaType: "moderateIncrease",
   },
   {
-    name: "Hong Kong",
+    name: "Device-4",
     region: "asia",
     sales: 390800,
     delta: "0.5%",
     deltaType: "moderateDecrease",
   },
   {
-    name: "Singapore",
+    name: "Device-5",
     region: "asia",
     sales: 190800,
     delta: "1.8%",
     deltaType: "moderateIncrease",
   },
   {
-    name: "Zurich",
+    name: "Device-6",
     region: "europe",
     sales: 164400,
     delta: "3.4%",
     deltaType: "decrease",
   },
   {
-    name: "Vienna",
+    name: "Device-7",
     region: "europe",
     sales: 139800,
     delta: "3.1%",
@@ -85,22 +85,22 @@ const filterByRegion = (region: string, data: Cities[]) =>
   region === "all" ? data : data.filter((city) => city.region === region);
 
 const valueFormatter = (number: number) =>
-  `$${Intl.NumberFormat("us").format(number).toString()}`;
+  `kWh ${Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function Example() {
   const [selectedRegion, setSelectedRegion] = useState("all");
   const [filteredData, setFilteredData] = useState(cities);
 
-  useEffect(() => {
-    const data = cities;
-    setFilteredData(filterByRegion(selectedRegion, data));
-  }, [selectedRegion]);
+//   useEffect(() => {
+//     const data = cities;
+//     setFilteredData(filterByRegion(selectedRegion, data));
+//   }, [selectedRegion]);
 
   return (
     <Card className="max-w-md mx-auto">
       <Flex className="space-x-8" justifyContent="start" alignItems="center">
-        <Title>Sales</Title>
-        <Select
+        <Title>Energy Consumed by Each Device</Title>
+        {/* <Select
           onValueChange={setSelectedRegion}
           placeholder="Region Selection"
         >
@@ -109,7 +109,7 @@ export default function Example() {
               {region.name}
             </SelectItem>
           ))}
-        </Select>
+        </Select> */}
       </Flex>
       <Legend
         categories={filteredData.map((city) => city.name)}
