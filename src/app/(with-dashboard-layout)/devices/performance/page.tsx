@@ -99,7 +99,7 @@ const PerformancePage = () => (
       />
     </Card>
     <Card>
-      <Title>BLDC Motor 2</Title>
+      <Title>DC775 Motor</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata3}
@@ -110,7 +110,7 @@ const PerformancePage = () => (
       />
     </Card>
     <Card>
-      <Title>BLDC Motor 2</Title>
+      <Title>Johnson DC775 Motor 1</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata4}
@@ -121,7 +121,7 @@ const PerformancePage = () => (
       />
     </Card>
     <Card>
-      <Title>BLDC Motor 2</Title>
+      <Title>Johnson DC775 Motor 2</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata5}
