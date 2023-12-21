@@ -91,10 +91,10 @@ export default function Example() {
   const [selectedRegion, setSelectedRegion] = useState("all");
   const [filteredData, setFilteredData] = useState(cities);
 
-//   useEffect(() => {
-//     const data = cities;
-//     setFilteredData(filterByRegion(selectedRegion, data));
-//   }, [selectedRegion]);
+  //   useEffect(() => {
+  //     const data = cities;
+  //     setFilteredData(filterByRegion(selectedRegion, data));
+  //   }, [selectedRegion]);
 
   return (
     <Card className="max-w-md mx-auto">
