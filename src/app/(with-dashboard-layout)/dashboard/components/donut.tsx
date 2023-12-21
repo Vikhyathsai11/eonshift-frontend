@@ -58,7 +58,6 @@ const cities: Cities[] = [
     delta: "0.5%",
     deltaType: "moderateDecrease",
   },
- 
 ];
 
 const filterByRegion = (region: string, data: Cities[]) =>
