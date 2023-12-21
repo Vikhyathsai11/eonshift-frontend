@@ -58,27 +58,7 @@ const cities: Cities[] = [
     delta: "0.5%",
     deltaType: "moderateDecrease",
   },
-  {
-    name: "Device-5",
-    region: "asia",
-    sales: 190800,
-    delta: "1.8%",
-    deltaType: "moderateIncrease",
-  },
-  {
-    name: "Device-6",
-    region: "europe",
-    sales: 164400,
-    delta: "3.4%",
-    deltaType: "decrease",
-  },
-  {
-    name: "Device-7",
-    region: "europe",
-    sales: 139800,
-    delta: "3.1%",
-    deltaType: "moderateIncrease",
-  },
+ 
 ];
 
 const filterByRegion = (region: string, data: Cities[]) =>

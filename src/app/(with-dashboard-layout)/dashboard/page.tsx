@@ -11,6 +11,8 @@ import BarChartExample from "~/app/(with-dashboard-layout)/dashboard/components/
 import DonutChart from "~/app/(with-dashboard-layout)/dashboard/components/donut";
 import ListGraph from "~/app/(with-dashboard-layout)/dashboard/components/listbar";
 import TotalFacilityConsumption from "~/app/(with-dashboard-layout)/dashboard/components/total-facility-consumption";
+import Sample from "~/app/(with-dashboard-layout)/dashboard/components/sample";
+
 
 export default function HomePage() {
   return (
@@ -21,12 +23,13 @@ export default function HomePage() {
       />
       <Separator />
       <TotalFacilityConsumption />
-      <BarChartExample />
+      {/* <Sample /> */}
       <Grid numItemsMd={3} className="mt-6 gap-6">
         <AreaChart />
         <ListGraph />
         <DonutChart />
       </Grid>
+      <BarChartExample />
     </PageContainer>
   );
 }
