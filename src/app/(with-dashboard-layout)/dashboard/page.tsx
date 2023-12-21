@@ -11,8 +11,6 @@ import BarChartExample from "~/app/(with-dashboard-layout)/dashboard/components/
 import DonutChart from "~/app/(with-dashboard-layout)/dashboard/components/donut";
 import ListGraph from "~/app/(with-dashboard-layout)/dashboard/components/listbar";
 import TotalFacilityConsumption from "~/app/(with-dashboard-layout)/dashboard/components/total-facility-consumption";
-import Sample from "~/app/(with-dashboard-layout)/dashboard/components/sample";
-
 
 export default function HomePage() {
   return (
