@@ -14,7 +14,6 @@ import { z } from "zod";
 
 import PageContainer from "~/shared/custom/page-container";
 import PageHeading from "~/shared/custom/page-heading";
-import { Button } from "~/shared/shadcn/ui/button";
 import { Separator } from "~/shared/shadcn/ui/separator";
 
 import { columns } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/columns";
@@ -22,7 +21,6 @@ import { DataTable } from "~/app/(with-dashboard-layout)/devices/control/compone
 import { taskSchema } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/data/schema";
 
 import { db } from "~/lib/firebase";
-import { Icons } from "~/lib/icons";
 import { type RootState } from "~/redux/store";
 import { type DeviceDocument } from "~/types";
 

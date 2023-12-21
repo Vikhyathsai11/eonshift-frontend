@@ -30,7 +30,7 @@ const DeviceInfoText = ({ title, value }: { title: string; value: string }) => {
   return (
     <div className={"flex flex-row justify-between items-center"}>
       <Text>{title}</Text>
-      <p className={"text-white text-sm"}>{value}</p>
+      <p className={"text-primary text-sm"}>{value}</p>
     </div>
   );
 };
@@ -140,14 +140,9 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                   {device.status === "active" ? (
                     <Legend categories={["Active"]} colors={["emerald"]} />
                   ) : device.status === "inactive" ? (
-                    <Legend
-                      className="mt-3"
-                      categories={["Inactive"]}
-                      colors={["red"]}
-                    />
+                    <Legend categories={["Inactive"]} colors={["red"]} />
                   ) : (
                     <Legend
-                      className="mt-3"
                       categories={[device.status || "Unknown"]}
                       colors={["yellow"]}
                     />
