@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { CalculatorIcon } from "@heroicons/react/outline";
+import { CalculatorIcon } from "@heroicons/react/24/outline";
 import {
   BarChart,
   Card,

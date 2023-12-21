@@ -8,11 +8,16 @@ import axios from "axios";
 import { collection, orderBy, query, type Query } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
+import { z } from "zod";
 
 import PageContainer from "~/shared/custom/page-container";
 import PageHeading from "~/shared/custom/page-heading";
 import { Button } from "~/shared/shadcn/ui/button";
 import { Separator } from "~/shared/shadcn/ui/separator";
+
+import { columns } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/columns";
+import { DataTable } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/data-table";
+import { taskSchema } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/data/schema";
 
 import { db } from "~/lib/firebase";
 import { Icons } from "~/lib/icons";
@@ -107,7 +112,6 @@ const ControlDevices = () => {
                       device.status === "active" ? "inactive" : "active",
                     );
                   }}
-                  disabled={loadingDeviceId === device.id}
                 >
                   {loadingDeviceId === device.id && (
                     <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
@@ -117,6 +121,10 @@ const ControlDevices = () => {
               </Card>
             ))}
           </div>
+          <DataTable
+            columns={columns}
+            data={z.array(taskSchema).parse(devices)}
+          />
         </>
       )}
     </PageContainer>

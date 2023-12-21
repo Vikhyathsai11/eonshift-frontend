@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { CodeIcon, TableIcon } from "@heroicons/react/solid";
+import { CodeBracketIcon, TableCellsIcon } from "@heroicons/react/24/solid";
 import {
   BarList,
   Bold,
@@ -12,11 +12,10 @@ import {
   Text,
   Title,
 } from "@tremor/react";
-import { number, Values } from "zod";
 
 const categories = [
-  { key: "developers", name: "Developers", icon: CodeIcon },
-  { key: "analysts", name: "Analysts", icon: TableIcon },
+  { key: "developers", name: "Developers", icon: CodeBracketIcon },
+  { key: "analysts", name: "Analysts", icon: TableCellsIcon },
 ];
 interface Visits {
   name: string;
