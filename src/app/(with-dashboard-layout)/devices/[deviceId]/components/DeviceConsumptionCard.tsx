@@ -67,7 +67,11 @@ export default function DeviceConsumptionCard({
     .reverse();
 
   return (
-    <Card>
+    <Card
+      key={device.id}
+      decoration={"top"}
+      decorationColor={device.status === "active" ? "green" : "red"}
+    >
       <Title>Current Energy Consumption</Title>
       <Metric>{device?.energy_usage} mWh</Metric>
       <p className={"text-xs text-muted-foreground"}>
