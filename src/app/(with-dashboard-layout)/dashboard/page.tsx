@@ -7,7 +7,7 @@ import PageHeading from "~/shared/custom/page-heading";
 import { Separator } from "~/shared/shadcn/ui/separator";
 
 import AreaChart from "~/app/(with-dashboard-layout)/dashboard/components/areachart";
-import BarChartExample from "~/app/(with-dashboard-layout)/dashboard/components/bargraph";
+// import BarChartExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/bargraph";
 import DonutChart from "~/app/(with-dashboard-layout)/dashboard/components/donut";
 import ListGraph from "~/app/(with-dashboard-layout)/dashboard/components/listbar";
 import TotalFacilityConsumption from "~/app/(with-dashboard-layout)/dashboard/components/total-facility-consumption";
@@ -27,7 +27,7 @@ export default function HomePage() {
         <ListGraph />
         <DonutChart />
       </Grid>
-      <BarChartExample />
+      {/* <BarChartExample /> */}
     </PageContainer>
   );
 }

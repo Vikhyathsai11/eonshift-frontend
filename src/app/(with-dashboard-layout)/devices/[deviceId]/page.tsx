@@ -19,8 +19,8 @@ import {
   TabsTrigger,
 } from "~/shared/shadcn/ui/tabs";
 
+import BarChartExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/bargraph";
 import DeviceConsumptionCard from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/DeviceConsumptionCard";
-import Sample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/sample";
 
 import { db } from "~/lib/firebase";
 import { type RootState } from "~/redux/store";
@@ -226,7 +226,7 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
           </Grid>{" "}
         </TabsContent>
         <TabsContent value="history">
-          <Sample />
+          <BarChartExample />
         </TabsContent>
       </Tabs>
     </PageContainer>
