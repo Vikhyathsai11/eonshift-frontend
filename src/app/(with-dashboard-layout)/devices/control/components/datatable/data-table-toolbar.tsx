@@ -1,5 +1,8 @@
 "use client";
 
+import * as React from "react";
+import { useState } from "react";
+
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { type Table } from "@tanstack/react-table";
 
@@ -11,17 +14,25 @@ import {
   statuses,
 } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/data/data";
 
+import { Icons } from "~/lib/icons";
+
 import { DataTableFacetedFilter } from "./data-table-faceted-filter";
 import { DataTableViewOptions } from "./data-table-view-options";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
+  toggleAllDevices: (toggleStatus: string) => void;
 }
 
 export function DataTableToolbar<TData>({
   table,
+  toggleAllDevices,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
+
+  const [status, setStatus] = useState("inactive");
+
+  const [loadingDeviceId] = useState<string | null>(null);
 
   return (
     <div className="flex items-center justify-between">
@@ -34,6 +45,31 @@ export function DataTableToolbar<TData>({
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
+        <Button
+          size={"sm"}
+          onClick={() => {
+            if (status === "active") {
+              setStatus("inactive");
+              toggleAllDevices("inactive");
+            } else {
+              setStatus("active");
+              toggleAllDevices("active");
+            }
+          }}
+          disabled={loadingDeviceId !== null}
+        >
+          {loadingDeviceId !== null && (
+            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+          )}
+          {status === "active" ? "Turn off all devices" : "Turn On All Devices"}
+        </Button>{" "}
+        {/*<Button*/}
+        {/*  size={"sm"}*/}
+        {/*  onClick={() => toggleAllDevices("inactive")}*/}
+        {/*  disabled={loadingDeviceId !== null}*/}
+        {/*>*/}
+        {/*  Turn Off All Devices*/}
+        {/*</Button>*/}
         {table.getColumn("status") && (
           <DataTableFacetedFilter
             column={table.getColumn("status")}

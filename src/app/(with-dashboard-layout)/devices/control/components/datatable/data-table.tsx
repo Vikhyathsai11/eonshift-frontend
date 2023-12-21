@@ -32,11 +32,13 @@ import { DataTableToolbar } from "./data-table-toolbar";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  toggleAllDevices: (toggleStatus: string) => void;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  toggleAllDevices,
 }: DataTableProps<TData, TValue>) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
@@ -70,7 +72,7 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="space-y-4 w-full">
-      <DataTableToolbar table={table} />
+      <DataTableToolbar table={table} toggleAllDevices={toggleAllDevices} />
       <div className="rounded-md border">
         <Table>
           <TableHeader>
