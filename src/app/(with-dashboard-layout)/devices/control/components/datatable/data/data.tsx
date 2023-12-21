@@ -6,6 +6,7 @@ import {
   CircleIcon,
   CrossCircledIcon,
   QuestionMarkCircledIcon,
+  RadiobuttonIcon,
   StopwatchIcon,
 } from "@radix-ui/react-icons";
 
@@ -40,7 +41,7 @@ export const statuses = [
   {
     value: "active",
     label: "Active",
-    icon: CircleIcon,
+    icon: RadiobuttonIcon,
   },
   {
     value: "inactive",
