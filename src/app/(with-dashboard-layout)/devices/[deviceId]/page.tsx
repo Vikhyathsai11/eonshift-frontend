@@ -112,7 +112,7 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
               <DeviceConsumptionCard device={device} />
               {/*<Card>*/}
               {/*  <Text>Current Energy Consumption</Text>*/}
-              {/*  <Metric>10 kWh</Metric>*/}
+              {/*  <Metric>10 mWh</Metric>*/}
               {/*</Card>*/}
             </Col>
             <Col>
@@ -155,21 +155,21 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
 
             {/*<Card>*/}
             {/*  <Text>Current Energy Consumption</Text>*/}
-            {/*  <Metric>{device.energy_usage} kWh</Metric>*/}
+            {/*  <Metric>{device.energy_usage} mWh</Metric>*/}
             {/*  <p className={"text-xs text-muted-foreground"}>*/}
             {/*    Last Updated: {moment(device?.last_updated?.toDate()).fromNow()}*/}
             {/*  </p>*/}
             {/*</Card>*/}
             <Card>
               <Text>Peak Consumption</Text>
-              <Metric>10 kWh</Metric>
+              <Metric>10 mWh</Metric>
               <p className={"text-xs text-muted-foreground"}>
                 Last 24 Hours
               </p>{" "}
             </Card>
             <Card>
               <Text>Average Energy Consumption</Text>
-              <Metric>20 kWh</Metric>
+              <Metric>20 mWh</Metric>
               <p className={"text-xs text-muted-foreground"}>
                 Per Month (Last 30 Days)
               </p>

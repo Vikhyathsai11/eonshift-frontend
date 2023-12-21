@@ -77,15 +77,15 @@ const TotalFacilityConsumption = () => {
     <section className="grid gap-3 md:grid-cols-2 lg:grid-cols-4 w-full">
       <ValueCard
         title={"Total Energy Consumption"}
-        value={`${facility?.total_consumption?.current_energy_usage} kWh`}
+        value={`${facility?.total_consumption?.current_energy_usage} mWh`}
       />
       <ValueCard
         title={"Peak Usage"}
-        value={`${facility?.total_consumption?.peak_usage} kWh`}
+        value={`${facility?.total_consumption?.peak_usage} mWh`}
       />
       <ValueCard
         title={"Average Daily Usage"}
-        value={`${facility?.total_consumption?.daily_average_usage} kWh`}
+        value={`${facility?.total_consumption?.daily_average_usage} mWh`}
       />
       <ValueCard
         title={"Carbon Footprint"}

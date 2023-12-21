@@ -21,12 +21,13 @@ export default function HomePage() {
       />
       <Separator />
       <TotalFacilityConsumption />
-      <BarChartExample />
+      {/* <Sample /> */}
       <Grid numItemsMd={3} className="mt-6 gap-6">
         <AreaChart />
         <ListGraph />
         <DonutChart />
       </Grid>
+      <BarChartExample />
     </PageContainer>
   );
 }

@@ -28,9 +28,9 @@ const visits = [
   { name: "Device-2", value: 134 },
   { name: "Device-3", value: 542 },
   { name: "Device-4", value: 234 },
-  { name: "Device-5", value: 32 },
-  { name: "Device-6", value: 15 },
-  { name: "Device-7", value: 456 },
+  // { name: "Device-5", value: 32 },
+  // { name: "Device-6", value: 15 },
+  // { name: "Device-7", value: 456 },
 ];
 
 // const developerVisits = [
@@ -109,7 +109,7 @@ export default function Example() {
           <Bold>Device</Bold>
         </Text>
         <Text>
-          <Bold>Energy Consumed (kWh)</Bold>
+          <Bold>Energy Consumed (mWh)</Bold>
         </Text>
       </Flex>
       <BarList data={sortData(visits)} showAnimation={false} className="mt-4" />

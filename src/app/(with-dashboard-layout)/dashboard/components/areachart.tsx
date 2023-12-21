@@ -120,7 +120,7 @@ export default function Example() {
         className="space-x-3 truncate"
       >
         <Metric>123</Metric>
-        <Text>kWh</Text>
+        <Text>mWh</Text>
       </Flex>
       <AreaChart
         className="mt-10 h-48"

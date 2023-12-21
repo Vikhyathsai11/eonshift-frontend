@@ -2,10 +2,12 @@
 
 import * as React from "react";
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { Card, Metric, Text } from "@tremor/react";
 import axios from "axios";
 import { collection, orderBy, query, type Query } from "firebase/firestore";
+import moment from "moment";
 import { useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
 import { z } from "zod";
@@ -27,6 +29,7 @@ import { type DeviceDocument } from "~/types";
 const ControlDevices = () => {
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
 
+  const router = useRouter();
   const [loadingDeviceId, setLoadingDeviceId] = useState<string | null>(null);
 
   const devicesQuery = useMemo(
@@ -73,56 +76,32 @@ const ControlDevices = () => {
       {status === "loading" && <>Loading Devices</>}
       {status === "success" && devices && (
         <>
-          <div className={"mb-4"}>
-            <h1>
-              Use the below buttons to switch on and switch off all the devices.
-            </h1>
-            <Button
-              size={"sm"}
-              onClick={() => toggleAllDevices("active")}
-              disabled={loadingDeviceId !== null}
-            >
-              Turn On All Devices
-            </Button>{" "}
-            <Button
-              size={"sm"}
-              onClick={() => toggleAllDevices("inactive")}
-              disabled={loadingDeviceId !== null}
-            >
-              Turn Off All Devices
-            </Button>
-          </div>
           <div
-            className={"grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2"}
+            className={
+              "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2 w-full"
+            }
           >
             {devices.map((device) => (
               <Card
                 key={device.id}
                 decoration={"top"}
                 decorationColor={device.status === "active" ? "green" : "red"}
+                onClick={() => {
+                  router.push(`/devices/${device.id}`);
+                }}
               >
-                <Text>{device.id}</Text>
-                <Metric>{device.energy_usage} kWh</Metric>
-                <Button
-                  size={"sm"}
-                  onClick={async (event) => {
-                    event.stopPropagation();
-                    await handleDeviceToggle(
-                      device.id,
-                      device.status === "active" ? "inactive" : "active",
-                    );
-                  }}
-                >
-                  {loadingDeviceId === device.id && (
-                    <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-                  )}
-                  {device.status === "active" ? "Turn Off" : "Turn On"}
-                </Button>
+                <Text>{device.name}</Text>
+                <Metric>{device.energy_usage} mWh</Metric>
+                <p className={"text-muted-foreground text-xs"}>
+                  Last Updated:{" "}
+                  {moment(device?.last_updated?.toDate()).fromNow()}
+                </p>
               </Card>
             ))}
           </div>
           <DataTable
             columns={columns}
+            toggleAllDevices={toggleAllDevices}
             data={z.array(taskSchema).parse(devices)}
           />
         </>
