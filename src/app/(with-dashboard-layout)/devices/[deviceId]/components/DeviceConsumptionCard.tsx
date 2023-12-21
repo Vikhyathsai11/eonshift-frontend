@@ -12,11 +12,13 @@ import moment from "moment";
 import { useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
 
+import { Skeleton } from "~/shared/shadcn/ui/skeleton";
+
 import { db } from "~/lib/firebase";
 import { type RootState } from "~/redux/store";
 import { type DeviceDocument, type EnergyDocument } from "~/types";
 
-const valueFormatter = (number: number) => `${number} kWh`;
+const valueFormatter = (number: number) => `${number} mWh`;
 
 export default function DeviceConsumptionCard({
   device,
@@ -49,6 +51,10 @@ export default function DeviceConsumptionCard({
     },
   );
 
+  if (status === "loading") {
+    return <Skeleton className="h-80" />;
+  }
+
   const formattedData = past12EnergyConsumptions
     .map((energyConsumption) => {
       return {
@@ -63,7 +69,7 @@ export default function DeviceConsumptionCard({
   return (
     <Card>
       <Title>Current Energy Consumption</Title>
-      <Metric>{device?.energy_usage} kWh</Metric>
+      <Metric>{device?.energy_usage * 1000} mWh</Metric>
       <p className={"text-xs text-muted-foreground"}>
         Last Updated: {moment(device?.last_updated?.toDate()).fromNow()}
       </p>

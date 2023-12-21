@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 import {
-  ArrowNarrowDownIcon,
-  ArrowNarrowRightIcon,
+  ArrowRightIcon,
+  ArrowTrendingDownIcon,
   ArrowUpIcon,
-} from "@heroicons/react/solid";
+} from "@heroicons/react/24/solid";
 import {
   Button,
   Callout,
@@ -47,7 +47,6 @@ const valueFormatter = (number: number) =>
   `$${Intl.NumberFormat("us").format(number).toString()}`;
 
 export default function EnergyConsumptionComparision() {
-  const [selectedComparison, setSelectedComparison] = useState("average");
   return (
     <Card className="max-w-md mx-auto">
       <Text>Today's Sales</Text>
@@ -108,7 +107,7 @@ export default function EnergyConsumptionComparision() {
             </Flex>
             <Callout
               title="-14.8% below yesterday"
-              icon={ArrowNarrowDownIcon}
+              icon={ArrowTrendingDownIcon}
               color="rose"
               className="mt-4"
             >
@@ -120,7 +119,7 @@ export default function EnergyConsumptionComparision() {
       <Button
         size="sm"
         variant="light"
-        icon={ArrowNarrowRightIcon}
+        icon={ArrowRightIcon}
         iconPosition="right"
         color="slate"
         className="mt-5"

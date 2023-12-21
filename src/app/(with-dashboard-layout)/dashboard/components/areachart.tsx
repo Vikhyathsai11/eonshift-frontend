@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ArrowNarrowRightIcon } from "@heroicons/react/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import {
   AreaChart,
   BadgeDelta,
@@ -158,7 +158,7 @@ export default function Example() {
         <Button
           size="xs"
           variant="light"
-          icon={ArrowNarrowRightIcon}
+          icon={ArrowRightIcon}
           iconPosition="right"
         >
           View more

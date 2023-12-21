@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 
-import { Card, Col, Grid, Legend, Metric, Subtitle, Text } from "@tremor/react";
+import { Card, Col, Grid, Legend, Metric, Text } from "@tremor/react";
 import { doc, type DocumentReference } from "firebase/firestore";
 import moment from "moment";
 import { useSelector } from "react-redux";
@@ -104,6 +104,7 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="history">History</TabsTrigger>
+          <TabsTrigger value="controls">Controls</TabsTrigger>
         </TabsList>
         <TabsContent value="overview" className={"mt-2"}>
           <Grid numItems={1} numItemsSm={2} numItemsLg={3} className="gap-3">
