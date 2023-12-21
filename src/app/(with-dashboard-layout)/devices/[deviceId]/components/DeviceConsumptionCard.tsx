@@ -69,7 +69,7 @@ export default function DeviceConsumptionCard({
   return (
     <Card>
       <Title>Current Energy Consumption</Title>
-      <Metric>{device?.energy_usage * 1000} mWh</Metric>
+      <Metric>{device?.energy_usage} mWh</Metric>
       <p className={"text-xs text-muted-foreground"}>
         Last Updated: {moment(device?.last_updated?.toDate()).fromNow()}
       </p>

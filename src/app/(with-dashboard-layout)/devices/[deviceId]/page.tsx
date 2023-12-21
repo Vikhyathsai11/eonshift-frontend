@@ -104,7 +104,7 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="history">History</TabsTrigger>
-          <TabsTrigger value="controls">Controls</TabsTrigger>
+          {/*<TabsTrigger value="controls">Controls</TabsTrigger>*/}
         </TabsList>
         <TabsContent value="overview" className={"mt-2"}>
           <Grid numItems={1} numItemsSm={2} numItemsLg={3} className="gap-3">
