@@ -100,7 +100,7 @@ const sortData = (data: Visits[]) =>
 //   );
 // }
 
-export default function Example() {
+export default function MostEnergyConsumingDevices() {
   return (
     <Card className="max-w-md mx-auto">
       <Title>Most energy Consuming Devices</Title>
