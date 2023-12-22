@@ -32,7 +32,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   }
 
   const MQTT_BROKER_URL = "mqtt://broker.hivemq.com";
-  const MQTT_TOPIC = `${reqData.deviceId}/status`;
+  const MQTT_TOPIC = `eonshift/${reqData.deviceId}/status`;
 
   try {
     const client: MqttClient = mqtt.connect(MQTT_BROKER_URL);

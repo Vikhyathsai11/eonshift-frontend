@@ -41,3 +41,8 @@ export type EnergyDocument = {
   energy_consumption: number;
   device_id: string;
 };
+
+export type GroupedEnergyByTypeDocument = {
+  last_updated: FirebaseDate;
+  data: Record<string, number>;
+};
