@@ -11,29 +11,29 @@ const chartdata = [
   },
 ];
 
-const valueFormatter = (number) =>
-  `mWh ${new Intl.NumberFormat("us").format(number).toString()}`;
+const valueFormatter = (number: number) =>
+  `${new Intl.NumberFormat("us").format(number).toString()} mWh`;
 
 const BarChartComponent = () => (
   <Card>
-    <Title size="lg">CHANGE IN COST</Title>
+    <Title className={"text-lg"}>CHANGE IN COST</Title>
 
     {/* Additional Cards for Increase in Energy and Increase in Cost */}
     <Flex className="mt-6">
       <Card className="mr-4 flex-1">
-        <Title size="xl" color="yellow" weight="bold">
+        <Title className={"text-lg font-bold"} color="yellow">
           +40%
         </Title>
-        <Text size="sm">Increase in the energy.</Text>
+        <Text className={"text-sm"}>Increase in the energy.</Text>
         {/* Add content for Increase in Energy */}
       </Card>
 
       <Card className="flex-1">
-        <Title size="xl" color="red" weight="bold">
+        <Title className={"text-lg font-bold"} color="red">
           {" "}
-          +2000 Rs.{" "}
+          +200 K ₹{" "}
         </Title>
-        <Text size="sm">Increase in cost</Text>
+        <Text className={"text-sm"}>Increase in cost</Text>
         {/* Add content for Increase in Cost */}
       </Card>
     </Flex>

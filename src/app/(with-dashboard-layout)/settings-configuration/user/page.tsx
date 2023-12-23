@@ -6,9 +6,6 @@ import {
   BadgeDelta,
   Button,
   Card,
-  Grid,
-  MultiSelect,
-  MultiSelectItem,
   Table,
   TableBody,
   TableCell,
@@ -91,8 +88,8 @@ const User = () => {
   const [selectedNames, setSelectedNames] = useState([]);
 
   // Function to check if a salesperson is selected
-  const isSalesPersonSelected = (salesPerson) =>
-    selectedNames.includes(salesPerson.name) || selectedNames.length === 0;
+  // const isSalesPersonSelected = (salesPerson) =>
+  //   selectedNames.includes(salesPerson.name) || selectedNames.length === 0;
 
   return (
     <PageContainer>
@@ -169,8 +166,8 @@ const User = () => {
 
           <TableBody>
             {salesPeople
-              .filter((item) => isSalesPersonSelected(item))
-              .map((item) => (
+              // .filter((item) => isSalesPersonSelected(item))
+              .map((item: Record<string, number | string>) => (
                 <TableRow key={item.name}>
                   <TableCell>{item.name}</TableCell>
                   <TableCell className="text-right">{item.leads}</TableCell>

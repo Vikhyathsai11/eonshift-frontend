@@ -25,11 +25,11 @@ export default function HomePage() {
       <Grid numItemsMd={2} numItemsLg={3} className="gap-4 w-full">
         <MostEnergyConsumingDevices />
         <EnergyConsumedByType />
-        {/*<MostEnergyConsumingDevices />*/}
-        <BarChartComponent />
         <DonutChart1 />
+        {/*<MostEnergyConsumingDevices />*/}
       </Grid>
       <div className={"flex flex-row gap-3 w-full justify-start"}>
+        <BarChartComponent />
         <TotalEnergyConsumptionChart />
       </div>
     </PageContainer>

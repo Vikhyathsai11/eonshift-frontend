@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { type ColumnDef } from "@tanstack/react-table";
-import { Card, Metric, Switch, Text } from "@tremor/react";
+import { Card, Metric, Switch, Text, Title } from "@tremor/react";
 import axios from "axios";
 import {
   collection,
@@ -23,6 +23,7 @@ import { z } from "zod";
 import PageContainer from "~/shared/custom/page-container";
 import PageHeading from "~/shared/custom/page-heading";
 import { Badge } from "~/shared/shadcn/ui/badge";
+import { Button } from "~/shared/shadcn/ui/button";
 import { Checkbox } from "~/shared/shadcn/ui/checkbox";
 import { Separator } from "~/shared/shadcn/ui/separator";
 
@@ -278,7 +279,7 @@ const ControlDevices = () => {
     setAddDeviceDialogOpen(!isAddDeviceDialogOpen);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Update the form values when input changes
     setNewDeviceValues({
       ...newDeviceValues,
@@ -346,7 +347,7 @@ const ControlDevices = () => {
           {/* Add device dialog */}
           {isAddDeviceDialogOpen && (
             <div className="bg-black p-4 shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <Title color="white">New Device</Title>
+              <Title className="text-primary">New Device</Title>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-white">
                   Name

@@ -16,8 +16,9 @@ import {
 import axios from "axios";
 import { doc, type DocumentReference } from "firebase/firestore";
 import moment from "moment";
-import TimePicker from "rc-time-picker";
 import { useSelector } from "react-redux";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import TimeRangeSlider from "react-time-range-slider";
 import { useFirestoreDocData } from "reactfire";
 
@@ -31,10 +32,8 @@ import {
   TabsTrigger,
 } from "~/shared/shadcn/ui/tabs";
 
-import SparkAreaExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/anomalies";
 import BarChartExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/bargraph";
 import DeviceConsumptionCard from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/DeviceConsumptionCard";
-import AlertDialogDemo from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/dialog";
 
 import { db } from "~/lib/firebase";
 import { type RootState } from "~/redux/store";
@@ -82,7 +81,7 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
     });
     setLoadingDeviceId(null);
   };
-  const [time, setTime] = useState({
+  const [time, setTime] = useState<Record<string, string>>({
     start: "05:00",
     end: "23:59",
   });
@@ -223,14 +222,9 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                     maxValue={"23:59"}
                     minValue={"00:00"}
                     name={"time_range"}
-                    // onChangeStart={(value)=>{
-                    //   setTime(value)
-                    // }}
-                    // onChangeComplete={this.changeCompleteHandler}
                     draggableTrack={true}
-                    onChange={(value: unknown) => {
+                    onChange={(value: Record<string, string>) => {
                       setTime(value);
-                      console.log(value);
                     }}
                     step={10}
                     value={time}
@@ -274,9 +268,9 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
         <TabsContent value="history">
           <BarChartExample />
         </TabsContent>
-        <TabsContent value="anomalies">
-          <SparkAreaExample />
-        </TabsContent>
+        {/*<TabsContent value="anomalies">*/}
+        {/*  <SparkAreaExample />*/}
+        {/*</TabsContent>*/}
         {/* <TabsContent value="add">
           <AlertDialogDemo />
         </TabsContent> */}
