@@ -33,6 +33,8 @@ export type DeviceDocument = {
   energy_usage: number;
   status: string;
   pinned: boolean;
+  start_time: string;
+  end_time: string;
   id: string;
 };
 

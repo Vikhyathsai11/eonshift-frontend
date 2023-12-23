@@ -58,7 +58,7 @@ export default function DeviceConsumptionCard({
   const formattedData = past12EnergyConsumptions
     .map((energyConsumption) => {
       return {
-        timestamp: moment(energyConsumption.timestamp.toDate()).format(
+        timestamp: moment(energyConsumption?.timestamp.toDate()).format(
           "MMM DD HH:mm:ss",
         ),
         "Energy Consumption": energyConsumption.energy_consumption,
@@ -82,7 +82,6 @@ export default function DeviceConsumptionCard({
         data={formattedData}
         categories={["Energy Consumption"]}
         index="timestamp"
-        // placeholder={"No Data Available"}
         colors={["blue", "fuchsia"]}
         valueFormatter={valueFormatter}
       />

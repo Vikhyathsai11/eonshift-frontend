@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import {
-  Button,
   Card,
   Col,
   Flex,
@@ -14,7 +13,7 @@ import {
   Text,
 } from "@tremor/react";
 import axios from "axios";
-import { doc, type DocumentReference } from "firebase/firestore";
+import { doc, setDoc, type DocumentReference } from "firebase/firestore";
 import moment from "moment";
 import { useSelector } from "react-redux";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -24,6 +23,7 @@ import { useFirestoreDocData } from "reactfire";
 
 import PageContainer from "~/shared/custom/page-container";
 import PageHeading from "~/shared/custom/page-heading";
+import { Button } from "~/shared/shadcn/ui/button";
 import { Separator } from "~/shared/shadcn/ui/separator";
 import {
   Tabs,
@@ -50,6 +50,8 @@ const DeviceInfoText = ({ title, value }: { title: string; value: string }) => {
 
 const DevicePage = ({ params }: { params: { deviceId: string } }) => {
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
+
+  const [timeUpdateLoading, setTimeUpdateLoading] = useState(false);
 
   const [loadingDeviceId, setLoadingDeviceId] = useState<string | null>(null);
 
@@ -85,6 +87,16 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
     start: "05:00",
     end: "23:59",
   });
+
+  // useEffect(() => {
+  //   if (status === "success" && device?.start_time && device.end_time) {
+  //     setTime({
+  //       start: moment(device.start_time).format("HH:mm") ?? "00:00",
+  //       end: moment(device.end_time).format("HH:mm"),
+  //     });
+  //   }
+  // }, [device, status]);
+
   if (status === "loading" || !device) {
     return (
       <PageContainer>
@@ -226,12 +238,40 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                     onChange={(value: Record<string, string>) => {
                       setTime(value);
                     }}
-                    step={10}
+                    step={1}
                     value={time}
                   />
                   {/* <Button className="mt-4" onClick={()=> handleCpdateClick()}>update</Button> */}
                 </div>
-                <Button className="mt-4">update</Button>
+                <Button
+                  size={"sm"}
+                  className="mt-4"
+                  onClick={async () => {
+                    setTimeUpdateLoading(true);
+                    const docRef = doc(
+                      db,
+                      "facilities",
+                      facilityId,
+                      "devices",
+                      device.id,
+                    );
+
+                    await setDoc(
+                      docRef,
+                      {
+                        start_time: moment(time.start, "HH:mm").toDate(),
+                        end_time: moment(time.end, "HH:mm").toDate(),
+                      },
+                      {
+                        merge: true,
+                      },
+                    );
+                    setTimeUpdateLoading(false);
+                  }}
+                >
+                  {timeUpdateLoading && ".."}
+                  Update Schedule
+                </Button>
               </Card>
             </Col>
 
