@@ -75,7 +75,7 @@ const PerformancePage = () => (
   <div>
     {/* First Chart */}
     <Card>
-      <Title>BLDC Motor 1</Title>
+      <Title>Device1</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata1}
@@ -88,7 +88,7 @@ const PerformancePage = () => (
 
     {/* Second Chart */}
     <Card>
-      <Title>BLDC Motor 2</Title>
+      <Title>Device2</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata2}
@@ -99,7 +99,7 @@ const PerformancePage = () => (
       />
     </Card>
     <Card>
-      <Title>DC775 Motor</Title>
+      <Title>Device3</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata3}
@@ -110,7 +110,7 @@ const PerformancePage = () => (
       />
     </Card>
     <Card>
-      <Title>Johnson DC775 Motor 1</Title>
+      <Title>Device4</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata4}
@@ -121,7 +121,7 @@ const PerformancePage = () => (
       />
     </Card>
     <Card>
-      <Title>Johnson DC775 Motor 2</Title>
+      <Title>Device5</Title>
       <AreaChart
         className="h-72 mt-4"
         data={chartdata5}

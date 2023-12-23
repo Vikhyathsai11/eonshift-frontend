@@ -4,7 +4,7 @@ import * as React from "react";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import { Card, Metric, Text } from "@tremor/react";
+import { Button, Card, Metric, Text, Title } from "@tremor/react";
 import axios from "axios";
 import {
   collection,
@@ -15,6 +15,7 @@ import {
   type Query,
 } from "firebase/firestore";
 import moment from "moment";
+
 import { useSelector } from "react-redux";
 import { useFirestoreCollectionData } from "reactfire";
 import { z } from "zod";
@@ -32,11 +33,22 @@ import { Icons } from "~/lib/icons";
 import { type RootState } from "~/redux/store";
 import { type DeviceDocument } from "~/types";
 
+// ... (existing imports)
+
 const ControlDevices = () => {
   const { id: facilityId } = useSelector((state: RootState) => state.facility);
 
   const router = useRouter();
   const [loadingDeviceId, setLoadingDeviceId] = useState<string | null>(null);
+  const [isAddDeviceDialogOpen, setAddDeviceDialogOpen] = useState(false);
+
+  // State for form input values
+  const [newDeviceValues, setNewDeviceValues] = useState({
+    name: "",
+    type: "",
+    location: "",
+    manufacturer: "",
+  });
 
   const devicesQuery = useMemo(
     () =>
@@ -84,6 +96,34 @@ const ControlDevices = () => {
     );
   };
 
+  const handleAddDeviceClick = () => {
+    // Reset the form values when opening the dialog
+    setNewDeviceValues({
+      name: "",
+      type: "",
+      location: "",
+      manufacturer: "",
+    });
+    // Toggle the visibility of the dialog
+    setAddDeviceDialogOpen(!isAddDeviceDialogOpen);
+  };
+
+  const handleInputChange = (e) => {
+    // Update the form values when input changes
+    setNewDeviceValues({
+      ...newDeviceValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAddDeviceSubmit = async () => {
+    // Add your logic here to submit the new device data
+    // For simplicity, let's just log the values to the console
+    console.log("New Device Values:", newDeviceValues);
+    // Close the dialog
+    setAddDeviceDialogOpen(false);
+  };
+
   return (
     <PageContainer>
       <PageHeading
@@ -127,6 +167,75 @@ const ControlDevices = () => {
                 </Card>
               ))}
           </div>
+                   <Button
+            onClick={handleAddDeviceClick}
+            className="mt-4 bg-green-500 hover:bg-green-700 text-white"
+          >
+            Add a Device
+          </Button>
+          {/* Add device dialog */}
+          {isAddDeviceDialogOpen && (
+            <div className="bg-black p-4 shadow-md fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <Title color="white">New Device</Title>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-white">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={newDeviceValues.name}
+                  onChange={handleInputChange}
+                  className="mt-1 p-2 border rounded-md w-full text-black" // Set text color to black
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-white">
+                  Type
+                </label>
+                <input
+                  type="text"
+                  name="type"
+                  value={newDeviceValues.type}
+                  onChange={handleInputChange}
+                  className="mt-1 p-2 border rounded-md w-full text-black" // Set text color to black
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-white">
+                  Location
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  value={newDeviceValues.location}
+                  onChange={handleInputChange}
+                  className="mt-1 p-2 border rounded-md w-full text-black" // Set text color to black
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-white">
+                  Manufacturer
+                </label>
+                <input
+                  type="text"
+                  name="manufacturer"
+                  value={newDeviceValues.manufacturer}
+                  onChange={handleInputChange}
+                  className="mt-1 p-2 border rounded-md w-full text-black" // Set text color to black
+                />
+              </div>
+              <Button
+                onClick={handleAddDeviceSubmit}
+                className="bg-green-500 hover:bg-green-700 text-white"
+              >
+                Submit
+              </Button>
+              <Button onClick={handleAddDeviceClick} className="ml-2 text-white">
+                Close
+              </Button>
+            </div>
+          )}
           <DataTable
             columns={columns}
             toggleAllDevices={toggleAllDevices}
