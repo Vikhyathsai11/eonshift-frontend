@@ -39,30 +39,50 @@ export function DataTableToolbar<TData>({
       <div className="flex flex-1 items-center space-x-2">
         <Input
           placeholder="Filter tasks..."
-          value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("title")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
         <Button
           size={"sm"}
           onClick={() => {
-            if (status === "active") {
-              setStatus("inactive");
-              toggleAllDevices("inactive");
-            } else {
-              setStatus("active");
-              toggleAllDevices("active");
-            }
+            setStatus("active");
+            toggleAllDevices("active");
           }}
-          disabled={loadingDeviceId !== null}
         >
-          {loadingDeviceId !== null && (
-            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
-          )}
-          {status === "active" ? "Turn off all devices" : "Turn On All Devices"}
-        </Button>{" "}
+          {/*<Icons.spinner className="h-4 w-4" />*/}
+          Turn On All Devices
+        </Button>
+        <Button
+          size={"sm"}
+          onClick={() => {
+            setStatus("inactive");
+            toggleAllDevices("inactive");
+          }}
+        >
+          {/*<Icons.spinner className="h-4 w-4" />*/}
+          Turn Off All Devices
+        </Button>
+        {/*<Button*/}
+        {/*  size={"sm"}*/}
+        {/*  onClick={() => {*/}
+        {/*    if (status === "active") {*/}
+        {/*      setStatus("inactive");*/}
+        {/*      toggleAllDevices("inactive");*/}
+        {/*    } else {*/}
+        {/*      setStatus("active");*/}
+        {/*      toggleAllDevices("active");*/}
+        {/*    }*/}
+        {/*  }}*/}
+        {/*  disabled={loadingDeviceId !== null}*/}
+        {/*>*/}
+        {/*  {loadingDeviceId !== null && (*/}
+        {/*    <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />*/}
+        {/*  )}*/}
+        {/*  {status === "active" ? "Turn off all devices" : "Turn On All Devices"}*/}
+        {/*</Button>{" "}*/}
         {/*<Button*/}
         {/*  size={"sm"}*/}
         {/*  onClick={() => toggleAllDevices("inactive")}*/}

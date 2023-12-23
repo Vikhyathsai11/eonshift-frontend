@@ -32,6 +32,7 @@ export type DeviceDocument = {
   manufacturer: string;
   energy_usage: number;
   status: string;
+  pinned: boolean;
   id: string;
 };
 
