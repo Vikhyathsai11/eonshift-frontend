@@ -104,12 +104,12 @@ const products: Product[] = [
 const valueFormatter = (number: number) =>
   `$${Intl.NumberFormat("us").format(number).toString()}`;
 
-export default function Example() {
+export default function TotalEnergyConsumptionChart() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedLocation = selectedIndex === 0 ? "A" : "B";
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card>
       <Flex alignItems="start">
         <Text>Energy Consumption</Text>
         <BadgeDelta deltaType="moderateIncrease">23.1%</BadgeDelta>

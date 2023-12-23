@@ -1,5 +1,6 @@
 import {
   ArrowLeftIcon,
+  DrawingPinFilledIcon,
   ExclamationTriangleIcon,
   HamburgerMenuIcon,
   MinusIcon,
@@ -17,4 +18,5 @@ export const Icons = {
   arrowLeft: ArrowLeftIcon,
   minus: MinusIcon,
   spinner: UpdateIcon,
+  pinned: DrawingPinFilledIcon,
 };

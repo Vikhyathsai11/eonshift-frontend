@@ -32,6 +32,7 @@ export type DeviceDocument = {
   manufacturer: string;
   energy_usage: number;
   status: string;
+  pinned: boolean;
   id: string;
 };
 
@@ -40,4 +41,9 @@ export type EnergyDocument = {
   timestamp: FirebaseDate;
   energy_consumption: number;
   device_id: string;
+};
+
+export type GroupedEnergyByTypeDocument = {
+  last_updated: FirebaseDate;
+  data: Record<string, number>;
 };

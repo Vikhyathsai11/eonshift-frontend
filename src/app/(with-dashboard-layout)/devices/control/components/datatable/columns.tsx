@@ -12,6 +12,8 @@ import {
 } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/data/data";
 import { type Task } from "~/app/(with-dashboard-layout)/devices/control/components/datatable/data/schema";
 
+import { cn } from "~/lib/utils";
+
 import { DataTableColumnHeader } from "./data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
 
@@ -58,9 +60,9 @@ export const columns: ColumnDef<Task>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "title",
+    accessorKey: "name",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Title" />
+      <DataTableColumnHeader column={column} title="Name" />
     ),
     cell: ({ row }) => {
       const label = labels.find(
@@ -74,7 +76,7 @@ export const columns: ColumnDef<Task>[] = [
         <div className="flex space-x-2">
           {label && <Badge variant="outline">{label.label}</Badge>}
           <span className="max-w-[500px] truncate font-medium">
-            {row.getValue("name") ?? "Hello"}
+            {row.getValue("name")}
           </span>
         </div>
       );
@@ -97,7 +99,14 @@ export const columns: ColumnDef<Task>[] = [
       return (
         <div className="flex w-[100px] items-center">
           {status.icon && (
-            <status.icon className="mr-2 h-4 w-4 text-muted-foreground" />
+            <status.icon
+              className={cn(
+                "mr-2 h-4 w-4 text-muted-foreground",
+                status.value === "active"
+                  ? "text-emerald-500"
+                  : "text-rose-500",
+              )}
+            />
           )}
           <span>{status.label}</span>
         </div>
