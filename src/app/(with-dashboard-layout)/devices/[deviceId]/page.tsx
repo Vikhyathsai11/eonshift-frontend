@@ -2,11 +2,23 @@
 
 import React, { useMemo, useState } from "react";
 
-import { Card, Col, Grid, Legend, Metric, Switch, Text } from "@tremor/react";
+import {
+  Card,
+  Col,
+  Flex,
+  Grid,
+  Legend,
+  Metric,
+  Switch,
+  Text,
+  Button,
+} from "@tremor/react";
 import axios from "axios";
 import { doc, type DocumentReference } from "firebase/firestore";
 import moment from "moment";
+import TimePicker from "rc-time-picker";
 import { useSelector } from "react-redux";
+import TimeRangeSlider from "react-time-range-slider";
 import { useFirestoreDocData } from "reactfire";
 
 import PageContainer from "~/shared/custom/page-container";
@@ -21,6 +33,8 @@ import {
 
 import BarChartExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/bargraph";
 import DeviceConsumptionCard from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/DeviceConsumptionCard";
+import SparkAreaExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/anomalies";
+import AlertDialogDemo from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/dialog";
 
 import { db } from "~/lib/firebase";
 import { type RootState } from "~/redux/store";
@@ -68,7 +82,10 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
     });
     setLoadingDeviceId(null);
   };
-
+  const [time, setTime] = useState({
+    start: "05:00",
+    end: "23:59",
+  });
   if (status === "loading" || !device) {
     return (
       <PageContainer>
@@ -104,6 +121,8 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
       </PageContainer>
     );
   }
+
+  
 
   return (
     <PageContainer>
@@ -162,6 +181,7 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                   />
                 </div>
               </Card>
+
               <Card className={"p-4 mt-4"}>
                 <div
                   className={"flex flex-row gap-2 items-center justify-between"}
@@ -187,9 +207,38 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                         : "Activate Device"}
                     </label>
                   </div>
+                  <Separator className={"my-1"} />
+
+                  <Text className={"font-medium"}>Scheduling Time</Text>
+                  <Separator className={"my-1"} />
+                  <Flex>
+                    <Text>Start time:<Metric>{time.start}</Metric> </Text>
+                    <Text>End time: <Metric>{time.end}</Metric></Text>
+                  </Flex>
+                  <TimeRangeSlider
+                    disabled={false}
+                    format={24}
+                    maxValue={"23:59"}
+                    minValue={"00:00"}
+                    name={"time_range"}
+                    // onChangeStart={(value)=>{
+                    //   setTime(value)
+                    // }}
+                    // onChangeComplete={this.changeCompleteHandler}
+                    draggableTrack={true}
+                    onChange={(value: unknown) => {
+                      setTime(value);
+                      console.log(value);
+                    }}
+                    step={10}
+                    value={time}
+                  />
+                  {/* <Button className="mt-4" onClick={()=> handleCpdateClick()}>update</Button> */}
                 </div>
+                <Button className="mt-4">update</Button>
               </Card>
             </Col>
+
             {/*<Card>*/}
             {/*  <Text>Current Energy Consumption</Text>*/}
             {/*  <Metric>{device.energy_usage} mWh</Metric>*/}
@@ -223,6 +272,12 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
         <TabsContent value="history">
           <BarChartExample />
         </TabsContent>
+        <TabsContent value="anomalies">
+          <SparkAreaExample />
+        </TabsContent>
+        {/* <TabsContent value="add">
+          <AlertDialogDemo />
+        </TabsContent> */}
       </Tabs>
     </PageContainer>
   );
