@@ -10,6 +10,8 @@ import EnergyConsumedByType from "~/app/(with-dashboard-layout)/dashboard/compon
 import MostEnergyConsumingDevices from "~/app/(with-dashboard-layout)/dashboard/components/most-energy-consuming-devices";
 import TotalFacilityConsumption from "~/app/(with-dashboard-layout)/dashboard/components/total-facility-consumption";
 import TotalEnergyConsumptionChart from "~/app/(with-dashboard-layout)/dashboard/components/total-facility-energy-chart";
+import BarChartComponent from "~/app/(with-dashboard-layout)/dashboard/components/cost-and-energy-consumption-graph";
+import DonutChart1 from "~/app/(with-dashboard-layout)/dashboard/components/devices-on-and-off";
 
 export default function HomePage() {
   return (
@@ -24,6 +26,8 @@ export default function HomePage() {
         <MostEnergyConsumingDevices />
         <EnergyConsumedByType />
         {/*<MostEnergyConsumingDevices />*/}
+        <BarChartComponent />
+        <DonutChart1 />
       </Grid>
       <div className={"flex flex-row gap-3 w-full justify-start"}>
         <TotalEnergyConsumptionChart />
