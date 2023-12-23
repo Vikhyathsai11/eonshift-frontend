@@ -1,6 +1,16 @@
 "use client";
 
-import { Text, Card, Table, TableRow, TableCell, TableHead, TableHeaderCell, TableBody, BadgeDelta } from "@tremor/react";
+import {
+  BadgeDelta,
+  Card,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeaderCell,
+  TableRow,
+  Text,
+} from "@tremor/react";
 
 import PageContainer from "~/shared/custom/page-container";
 import PageHeading from "~/shared/custom/page-heading";
@@ -95,8 +105,12 @@ const Alerts = () => {
             <TableRow>
               <TableHeaderCell>Name</TableHeaderCell>
               <TableHeaderCell className="text-right">Leads</TableHeaderCell>
-              <TableHeaderCell className="text-right">Sales ($)</TableHeaderCell>
-              <TableHeaderCell className="text-right">Quota ($)</TableHeaderCell>
+              <TableHeaderCell className="text-right">
+                Sales ($)
+              </TableHeaderCell>
+              <TableHeaderCell className="text-right">
+                Quota ($)
+              </TableHeaderCell>
               <TableHeaderCell className="text-right">Variance</TableHeaderCell>
               <TableHeaderCell className="text-right">Region</TableHeaderCell>
               <TableHeaderCell className="text-right">Status</TableHeaderCell>
@@ -121,7 +135,6 @@ const Alerts = () => {
           </TableBody>
         </Table>
       </Card>
-
     </PageContainer>
   );
 };

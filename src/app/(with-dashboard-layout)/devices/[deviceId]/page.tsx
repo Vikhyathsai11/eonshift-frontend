@@ -3,6 +3,7 @@
 import React, { useMemo, useState } from "react";
 
 import {
+  Button,
   Card,
   Col,
   Flex,
@@ -11,7 +12,6 @@ import {
   Metric,
   Switch,
   Text,
-  Button,
 } from "@tremor/react";
 import axios from "axios";
 import { doc, type DocumentReference } from "firebase/firestore";
@@ -31,9 +31,9 @@ import {
   TabsTrigger,
 } from "~/shared/shadcn/ui/tabs";
 
+import SparkAreaExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/anomalies";
 import BarChartExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/bargraph";
 import DeviceConsumptionCard from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/DeviceConsumptionCard";
-import SparkAreaExample from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/anomalies";
 import AlertDialogDemo from "~/app/(with-dashboard-layout)/devices/[deviceId]/components/dialog";
 
 import { db } from "~/lib/firebase";
@@ -121,8 +121,6 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
       </PageContainer>
     );
   }
-
-  
 
   return (
     <PageContainer>
@@ -212,8 +210,12 @@ const DevicePage = ({ params }: { params: { deviceId: string } }) => {
                   <Text className={"font-medium"}>Scheduling Time</Text>
                   <Separator className={"my-1"} />
                   <Flex>
-                    <Text>Start time:<Metric>{time.start}</Metric> </Text>
-                    <Text>End time: <Metric>{time.end}</Metric></Text>
+                    <Text>
+                      Start time:<Metric>{time.start}</Metric>{" "}
+                    </Text>
+                    <Text>
+                      End time: <Metric>{time.end}</Metric>
+                    </Text>
                   </Flex>
                   <TimeRangeSlider
                     disabled={false}

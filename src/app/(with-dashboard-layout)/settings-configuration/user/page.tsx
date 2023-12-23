@@ -1,19 +1,20 @@
 "use client";
 
 import { useState } from "react";
+
 import {
+  BadgeDelta,
+  Button,
   Card,
+  Grid,
+  MultiSelect,
+  MultiSelectItem,
   Table,
-  TableRow,
+  TableBody,
   TableCell,
   TableHead,
   TableHeaderCell,
-  TableBody,
-  BadgeDelta,
-  MultiSelect,
-  MultiSelectItem,
-  Button,
-  Grid,
+  TableRow,
   Text,
   Title,
 } from "@tremor/react";
@@ -154,8 +155,12 @@ const User = () => {
             <TableRow>
               <TableHeaderCell>Name</TableHeaderCell>
               <TableHeaderCell className="text-right">Leads</TableHeaderCell>
-              <TableHeaderCell className="text-right">Sales ($)</TableHeaderCell>
-              <TableHeaderCell className="text-right">Quota ($)</TableHeaderCell>
+              <TableHeaderCell className="text-right">
+                Sales ($)
+              </TableHeaderCell>
+              <TableHeaderCell className="text-right">
+                Quota ($)
+              </TableHeaderCell>
               <TableHeaderCell className="text-right">Variance</TableHeaderCell>
               <TableHeaderCell className="text-right">Region</TableHeaderCell>
               <TableHeaderCell className="text-right">Status</TableHeaderCell>

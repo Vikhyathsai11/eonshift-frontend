@@ -14,7 +14,7 @@ const ReportsExport = () => {
         subTitle={
           "This page gives us the information about the Reports and Exports."
         }
-      />  
+      />
       <Separator />
       <Text>Sample</Text>
     </PageContainer>

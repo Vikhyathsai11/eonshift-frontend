@@ -1,4 +1,4 @@
-import { BarChart, Card, Title, Grid, Flex, Text } from "@tremor/react";
+import { BarChart, Card, Flex, Grid, Text, Title } from "@tremor/react";
 
 const chartdata = [
   {
@@ -11,22 +11,28 @@ const chartdata = [
   },
 ];
 
-const valueFormatter = (number) => `mWh ${new Intl.NumberFormat("us").format(number).toString()}`;
+const valueFormatter = (number) =>
+  `mWh ${new Intl.NumberFormat("us").format(number).toString()}`;
 
 const BarChartComponent = () => (
   <Card>
     <Title size="lg">CHANGE IN COST</Title>
-    
+
     {/* Additional Cards for Increase in Energy and Increase in Cost */}
     <Flex className="mt-6">
       <Card className="mr-4 flex-1">
-        <Title size="xl" color="yellow" weight="bold">+40%</Title>
+        <Title size="xl" color="yellow" weight="bold">
+          +40%
+        </Title>
         <Text size="sm">Increase in the energy.</Text>
         {/* Add content for Increase in Energy */}
       </Card>
 
       <Card className="flex-1">
-        <Title size="xl" color="red" weight="bold"> +2000 Rs. </Title>
+        <Title size="xl" color="red" weight="bold">
+          {" "}
+          +2000 Rs.{" "}
+        </Title>
         <Text size="sm">Increase in cost</Text>
         {/* Add content for Increase in Cost */}
       </Card>

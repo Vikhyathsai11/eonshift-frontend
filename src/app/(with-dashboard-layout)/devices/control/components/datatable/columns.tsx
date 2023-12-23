@@ -1,6 +1,9 @@
 "use client";
 
+import React from "react";
+
 import { type ColumnDef } from "@tanstack/react-table";
+import { Switch } from "@tremor/react";
 
 import { Badge } from "~/shared/shadcn/ui/badge";
 import { Checkbox } from "~/shared/shadcn/ui/checkbox";
@@ -143,6 +146,17 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access,@typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-return
       return value.includes(row.getValue(id));
+    },
+  },
+  {
+    id: "sample",
+    cell: ({ row }) => {
+      return (
+        <Switch
+          name={"Toggle Device"}
+          checked={row.original.status === "active"}
+        />
+      );
     },
   },
   {
