@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EonShift Frontend README
 
 ## Project Overview
@@ -67,3 +68,6 @@ source files.
 
 For any additional information or support, please contact the development team or open an issue in the project
 repository.
+=======
+# eonshift-frontend
+>>>>>>> d02196d187fa21bd54ef1292602343987e85aef7
