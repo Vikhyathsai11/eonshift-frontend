@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "eonshift-562d1.appspot.com",
   messagingSenderId: "511989834545",
   appId: "1:511989834545:web:b4e66e3e9f380f77344610",
-  measurementId: "G-CE280PTTNQ"
+  measurementId: "G-CE280PTTNQ",
 };
 
 // Initialize Firebase
