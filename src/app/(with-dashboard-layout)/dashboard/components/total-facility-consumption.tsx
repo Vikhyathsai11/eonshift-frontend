@@ -75,22 +75,30 @@ const TotalFacilityConsumption = () => {
   // If the data has loaded successfully, it is displayed in a grid of cards.
   return (
     <section className="grid gap-3 md:grid-cols-2 lg:grid-cols-4 w-full">
-      <ValueCard
-        title={"Total Energy Consumption"}
-        value={`${facility?.total_consumption?.current_energy_usage} mWh`}
-      />
-      <ValueCard
-        title={"Peak Usage"}
-        value={`${facility?.total_consumption?.peak_usage} mWh`}
-      />
-      <ValueCard
-        title={"Average Daily Usage"}
-        value={`${facility?.total_consumption?.daily_average_usage} mWh`}
-      />
-      <ValueCard
-        title={"Carbon Footprint"}
-        value={`${facility?.total_consumption?.carbon_footprint} kg`}
-      />
+      <span className="hover:shadow hover:shadow-gray-300 rounded-lg">
+        <ValueCard
+          title={"Total Energy Consumption"}
+          value={`${facility?.total_consumption?.current_energy_usage} mWh`}
+        />
+      </span>
+      <span className="hover:shadow hover:shadow-gray-300 rounded-lg">
+        <ValueCard
+          title={"Peak Usage"}
+          value={`${facility?.total_consumption?.peak_usage} mWh`}
+        />
+      </span>
+      <span className="hover:shadow hover:shadow-gray-300 rounded-lg">  
+        <ValueCard
+          title={"Average Daily Usage"}
+          value={`${facility?.total_consumption?.daily_average_usage} mWh`}
+        />
+      </span> 
+      <span className="hover:shadow hover:shadow-gray-300 rounded-lg">
+        <ValueCard
+          title={"Carbon Footprint"}
+          value={`${facility?.total_consumption?.carbon_footprint} kg`}
+        />
+      </span> 
     </section>
   );
 };

@@ -149,7 +149,7 @@ export default function MostEnergyConsumingDevices() {
   }
 
   return (
-    <Card className="max-w-md mx-auto">
+    <Card className="max-w-md mx-auto hover:shadow-md rounded-lg hover:shadow-white">
       <Title>Most energy Consuming Devices</Title>
       <Flex className="mt-6 font-medium">
         <Text>Device</Text>

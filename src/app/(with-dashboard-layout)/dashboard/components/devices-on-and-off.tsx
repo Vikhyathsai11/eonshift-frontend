@@ -42,7 +42,7 @@ const DonutChart2 = () => {
   );
 
   return (
-    <Card className="max-w-lg">
+    <Card className="max-w-lg hover:shadow-md rounded hover:shadow-white">
       <Title>Device Status</Title>
       <p className={"text-sm text-muted-foreground"}>
         Amount of devices active and inactive

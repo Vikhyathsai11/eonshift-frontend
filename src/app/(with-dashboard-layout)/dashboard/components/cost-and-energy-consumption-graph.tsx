@@ -2,11 +2,11 @@ import { BarChart, Card, Flex, Grid, Text, Title } from "@tremor/react";
 
 const chartdata = [
   {
-    name: "Jan 2021",
+    name: "Jan 2024",
     "Energy Consumption": 2488,
   },
   {
-    name: "Feb 2021",
+    name: "Feb 2024",
     "Energy Consumption": 1445,
   },
 ];

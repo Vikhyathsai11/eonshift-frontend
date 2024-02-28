@@ -5,70 +5,120 @@ import { AreaChart, Card, Title } from "@tremor/react";
 const chartdata1 = [
   {
     date: "Jan 1",
-    Category1: 2890,
-    Category2: 2338,
+    Consumption: 2890,
+    Prediction: 2338,
   },
   {
     date: "Feb 1",
-    Category1: 2899,
-    Category2: 2880,
+    Consumption: 2899,
+    Prediction: 2880,
+  },
+  {
+    date: "Mar 1",
+    Consumption: 2890,
+    Prediction: 2338,
+  },
+  {
+    date: "April 1",
+    Consumption: 2899,
+    Prediction: 2880,
+  },
+  {
+    date: "May 1",
+    Consumption: 2890,
+    Prediction: 2338,
+  },
+  {
+    date: "June 1",
+    Consumption: 2899,
+    Prediction: 2880,
+  },
+  {
+    date: "July 1",
+    Consumption: 2890,
+    Prediction: 2338,
+  },
+  {
+    date: "Aug 1",
+    Consumption: 2899,
+    Prediction: 2880,
+  },
+  {
+    date: "Sept 1",
+    Consumption: 2890,
+    Prediction: 2338,
+  },
+  {
+    date: "Oct 1",
+    Consumption: 2899,
+    Prediction: 2880,
+  },
+  {
+    date: "Nov 1",
+    Consumption: 2890,
+    Prediction: 2338,
+  },
+  {
+    date: "Dec 1",
+    Consumption: 2899,
+    Prediction: 2880,
   },
 ];
 
 const chartdata2 = [
   {
     date: "Jan 1",
-    Category1: 2890,
-    Category2: 2338,
+    Consumption: 2890,
+    Prediction: 2338,
   },
   {
     date: "Feb 1",
-    Category1: 2899,
-    Category2: 2880,
+    Consumption: 2899,
+    Prediction: 2880,
   },
 ];
 
 const chartdata3 = [
   {
     date: "Jan 1",
-    Category1: 2890,
-    Category2: 2338,
+    Consumption: 2890,
+    Prediction: 2338,
   },
   {
     date: "Feb 1",
-    Category1: 2899,
-    Category2: 2880,
+    Consumption: 2899,
+    Prediction: 2880,
   },
 ];
 
 const chartdata4 = [
   {
     date: "Jan 1",
-    Category1: 2890,
-    Category2: 2338,
+    Consumption: 2890,
+    Prediction: 2338,
   },
   {
     date: "Feb 1",
-    Category1: 2899,
-    Category2: 2880,
+    Consumption: 2899,
+    Prediction: 2880,
   },
 ];
 
 const chartdata5 = [
   {
     date: "Jan 1",
-    Category1: 2890,
-    Category2: 2338,
+    Consumption: 2890,
+    Prediction: 2338,
   },
   {
     date: "Feb 1",
-    Category1: 2899,
-    Category2: 2880,
+    Consumption: 2899,
+    Prediction: 2880,
   },
 ];
 
 const valueFormatter = function (number1: number) {
-  return "$ " + new Intl.NumberFormat("us").format(number1).toString();
+  return new Intl.NumberFormat("us").format(number1).toString();
 };
 
 const PerformancePage = () => (
@@ -80,7 +130,7 @@ const PerformancePage = () => (
         className="h-72 mt-4"
         data={chartdata1}
         index="date"
-        categories={["Category1", "Category2"]}
+        categories={["Consumption", "Prediction"]}
         colors={["indigo", "cyan"]}
         valueFormatter={valueFormatter}
       />
@@ -93,7 +143,7 @@ const PerformancePage = () => (
         className="h-72 mt-4"
         data={chartdata2}
         index="date"
-        categories={["Category1", "Category2"]}
+        categories={["Consumption", "Prediction"]}
         colors={["indigo", "cyan"]}
         valueFormatter={valueFormatter}
       />
@@ -104,7 +154,7 @@ const PerformancePage = () => (
         className="h-72 mt-4"
         data={chartdata3}
         index="date"
-        categories={["Category1", "Category2"]}
+        categories={["Consumption", "Prediction"]}
         colors={["indigo", "cyan"]}
         valueFormatter={valueFormatter}
       />
@@ -115,7 +165,7 @@ const PerformancePage = () => (
         className="h-72 mt-4"
         data={chartdata4}
         index="date"
-        categories={["Category1", "Category2"]}
+        categories={["Consumption", "Prediction"]}
         colors={["indigo", "cyan"]}
         valueFormatter={valueFormatter}
       />
@@ -126,7 +176,7 @@ const PerformancePage = () => (
         className="h-72 mt-4"
         data={chartdata5}
         index="date"
-        categories={["Category1", "Category2"]}
+        categories={["Consumption", "Prediction"]}
         colors={["indigo", "cyan"]}
         valueFormatter={valueFormatter}
       />

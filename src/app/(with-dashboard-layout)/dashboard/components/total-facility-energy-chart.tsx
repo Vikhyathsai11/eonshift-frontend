@@ -17,51 +17,51 @@ import {
 
 const sales = [
   {
-    Month: "Jan 21",
+    Month: "Jan 23",
     Sales: 2890,
   },
   {
-    Month: "Feb 21",
+    Month: "Feb 23",
     Sales: 1890,
   },
   {
-    Month: "Mar 21",
+    Month: "Mar 23",
     Sales: 2890,
   },
   {
-    Month: "Apr 21",
+    Month: "Apr 23",
     Sales: 1890,
   },
   {
-    Month: "May 21",
+    Month: "May 23",
     Sales: 2890,
   },
   {
-    Month: "Jun 21",
+    Month: "Jun 23",
     Sales: 1890,
   },
   {
-    Month: "Jul 21",
+    Month: "Jul 23",
     Sales: 2890,
   },
   {
-    Month: "Aug 21",
+    Month: "Aug 23",
     Sales: 1890,
   },
   {
-    Month: "Sep 21",
+    Month: "Sep 23",
     Sales: 2890,
   },
   {
-    Month: "Oct 21",
+    Month: "Oct 23",
     Sales: 1890,
   },
   {
-    Month: "Nov 21",
+    Month: "Nov 23",
     Sales: 2890,
   },
   {
-    Month: "Dec 21",
+    Month: "Dec 23",
     Sales: 3350,
   },
 ];
